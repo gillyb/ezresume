@@ -57,3 +57,17 @@ typings/
 # dotenv environment variables file
 .env
 
+
+
+
+# Custom stuff
+dist
+build
+
+# configuration files
+server/config/dev.js
+server/config/prod.js
+server/config/mongo.conf
+
+# db data
+server/db/data
