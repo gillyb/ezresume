@@ -4,7 +4,7 @@ const currentDir = __dirname;
 const defaultMongoBinDir = '/Users/gillyb/utilities/mongodb/bin';
 const mongodExecutable = process.env['MONGOD'] || defaultMongoBinDir + '/mongod';
 
-const dbName = process.env['MONGO_DB_NAME'] || 'hackathon';
+const dbName = process.env['MONGO_DB_NAME'] || 'ezresume';
 
 module.exports = {
 
@@ -15,7 +15,7 @@ module.exports = {
     },
     auth: {
         session: {
-            name: 'hackathon.session',
+            name: 'ezresume.session',
             secret: '__BUDhHa__'
         },
         facebook: {
