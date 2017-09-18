@@ -12,7 +12,7 @@ export default class GeneralDetailsSection extends React.Component {
 
         this.template = [
             { name: 'Job title', key: 'jobTitle', type: 'string' },
-            { name: 'About You', key: 'aboutYou', type: 'string' }
+            { name: 'About You', key: 'aboutYou', type: 'multiline' }
         ];
 
         this.onSave = this.onSave.bind(this);

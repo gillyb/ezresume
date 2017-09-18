@@ -52,17 +52,34 @@ export default class InlineForm extends React.Component {
 
         if (this.state.editing) {
             this.state.fields.forEach((fieldInfo) => {
-                fieldValues.push(
-                    <input
-                        type="text"
-                        className="form-control"
-                        key={fieldInfo.key}
-                        name={fieldInfo.key}
-                        value={fieldInfo.value}
-                        placeholder={fieldInfo.name}
-                        onChange={this.handleChange}
-                    />
-                );
+
+                switch (fieldInfo.type) {
+                    case 'string':
+                        fieldValues.push(
+                            <input
+                                type="text"
+                                className="form-control"
+                                key={fieldInfo.key}
+                                name={fieldInfo.key}
+                                value={fieldInfo.value}
+                                placeholder={fieldInfo.name}
+                                onChange={this.handleChange}
+                            />
+                        );
+                        break;
+                    case 'multiline':
+                        fieldValues.push(
+                            <textarea
+                                className="form-control"
+                                key={fieldInfo.key}
+                                name={fieldInfo.key}
+                                value={fieldInfo.value}
+                                placeholder={fieldInfo.name}
+                                onChange={this.handleChange}
+                            />
+                        );
+                        break;
+                }
             });
         }
         else {
@@ -72,7 +89,9 @@ export default class InlineForm extends React.Component {
                         <div
                             className="form-value"
                             key={fieldInfo.key}
-                        >{fieldInfo.value}</div>
+                        >
+                            {fieldInfo.value.split('\n').map((line, index) => <span key={index}>{line}<br/></span>)}
+                        </div>
                     );
             });
         }
