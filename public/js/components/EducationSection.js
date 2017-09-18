@@ -14,7 +14,7 @@ export default class EducationSection extends React.Component {
             { name: 'School', key: 'school', type: 'string' },
             { name: 'Degree', key: 'degree', type: 'string' },
             { name: 'Major', key: 'major', type: 'string' },
-            { name: 'Summary', key: 'summary', type: 'string' }
+            { name: 'Summary', key: 'summary', type: 'multiline' }
         ];
 
         this.addEducation = this.addEducation.bind(this);
