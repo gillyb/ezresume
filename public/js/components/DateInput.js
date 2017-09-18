@@ -20,14 +20,14 @@ export default class DateInput extends React.Component {
 
     render() {
         const days = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31].map((day) =>
-            <option value={day}>{day}</option>
+            <option value={day} key={day}>{day}</option>
         );
         const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'].map((month, index) =>
-            <option value={index + 1}>{month}</option>
+            <option value={index + 1} key={index}>{month}</option>
         );
         let years = [];
         for (var i=2018; i>=1950; i--) {
-            years.push(<option value={i}>{i}</option>);
+            years.push(<option value={i} key={i}>{i}</option>);
         }
 
         return (
@@ -36,11 +36,11 @@ export default class DateInput extends React.Component {
                     <option value="0">Day</option>
                     {days}
                 </select>
-                <select name="month" value={this.state.month} onchange={this.handleChange}>
+                <select name="month" value={this.state.month} onChange={this.handleChange}>
                     <option value="0">Month</option>
                     {months}
                 </select>
-                <select name="year" value={this.state.year} onchange={this.handleChange}>
+                <select name="year" value={this.state.year} onChange={this.handleChange}>
                     <option value="0">Year</option>
                     {years}
                 </select>

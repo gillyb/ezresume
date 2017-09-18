@@ -1,6 +1,7 @@
 import React from 'react';
 
 import TimeRangeEditor from './TimeRangeEditor';
+import BulletsEditor from './BulletsEditor';
 
 export default class InlineForm extends React.Component {
 
@@ -90,35 +91,59 @@ export default class InlineForm extends React.Component {
                             />
                         );
                         break;
+                    case 'bullets':
+                        fieldValues.push(
+                            <BulletsEditor
+                                key={fieldInfo.key}
+                                bullets={fieldInfo.value}
+                            />
+                        );
+                        break;
                 }
             });
         }
         else {
             this.state.fields.forEach((fieldInfo) => {
                 if (fieldInfo.value) {
-                    if (fieldInfo.type === 'string' || fieldInfo.type === 'multiline') {
-                        fieldValues.push(
-                            <div
-                                className="form-value"
-                                key={fieldInfo.key}
-                            >
-                                {fieldInfo.value.split('\n').map((line, index) => <span key={index}>{line}<br/></span>)}
-                            </div>
-                        );
-                    }
-                    else if (fieldInfo.type === 'timerange') {
-                        fieldValues.push(
-                            // TODO: This isn't really nice. Make this look much better!
-                            <div className="timerange" key={fieldInfo.key}>
-                                {fieldInfo.value.startDate.day ? <span>{fieldInfo.value.startDate.day}</span> : ''}
-                                {fieldInfo.value.startDate.month ? <span>{fieldInfo.value.startDate.month}</span> : ''}
-                                {fieldInfo.value.startDate.year ? <span>{fieldInfo.value.startDate.year}</span> : ''}
-                                <span className="separator"> - </span>
-                                {fieldInfo.value.endDate.day ? <span>{fieldInfo.value.endDate.day}</span> : ''}
-                                {fieldInfo.value.endDate.month ? <span>{fieldInfo.value.endDate.month}</span> : ''}
-                                {fieldInfo.value.endDate.year ? <span>{fieldInfo.value.endDate.year}</span> : ''}
-                            </div>
-                        );
+
+                    switch (fieldInfo.type) {
+
+                        case 'string':
+                        case 'multiline':
+                            fieldValues.push(
+                                <div
+                                    className="form-value"
+                                    key={fieldInfo.key}
+                                >
+                                    {fieldInfo.value.split('\n').map((line, index) => <span key={index}>{line}<br/></span>)}
+                                </div>
+                            );
+                            break;
+
+                        case 'timerange':
+                            fieldValues.push(
+                                // TODO: This isn't really nice. Make this look much better!
+                                <div className="timerange" key={fieldInfo.key}>
+                                    {fieldInfo.value.startDate.day ? <span>{fieldInfo.value.startDate.day}</span> : ''}
+                                    {fieldInfo.value.startDate.month ? <span>{fieldInfo.value.startDate.month}</span> : ''}
+                                    {fieldInfo.value.startDate.year ? <span>{fieldInfo.value.startDate.year}</span> : ''}
+                                    <span className="separator"> - </span>
+                                    {fieldInfo.value.endDate.day ? <span>{fieldInfo.value.endDate.day}</span> : ''}
+                                    {fieldInfo.value.endDate.month ? <span>{fieldInfo.value.endDate.month}</span> : ''}
+                                    {fieldInfo.value.endDate.year ? <span>{fieldInfo.value.endDate.year}</span> : ''}
+                                </div>
+                            );
+                            break;
+
+                        case 'bullets':
+                            fieldValues.push(
+                                <ul className="bullets" key={fieldInfo.key}>
+                                    {fieldInfo.value.map((bullet, index) =>
+                                        <li key={index}>{bullet}</li>
+                                    )}
+                                </ul>
+                            );
+                            break;
                     }
                 }
             });
