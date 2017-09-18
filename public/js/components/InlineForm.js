@@ -33,8 +33,13 @@ export default class InlineForm extends React.Component {
             this.setState({ editing: true });
     }
 
+    // TODO: use a better utility for this
+    cloneArray(arr) {
+        return JSON.parse(JSON.stringify(arr));
+    }
+
     handleChange(event) {
-        let updatedFields = this.state.fields.slice();
+        let updatedFields = this.cloneArray(this.state.fields);
         updatedFields.forEach((field) => {
             if (field.key === event.target.name)
                 field.value = event.target.value;
@@ -79,7 +84,7 @@ export default class InlineForm extends React.Component {
                 {!this.state.editing ? '' :
                     <div className="actions">
                         <button type="button" className="btn btn-primary btn-sm" onClick={this.handleUpdate}>Save</button>
-                        <button type="button" className="btn btn-secondary btn-sm">Cancel</button>
+                        <button type="button" className="btn btn-secondary btn-sm" onClick={this.handleCancel}>Cancel</button>
                     </div>
                 }
             </div>

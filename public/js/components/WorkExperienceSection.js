@@ -63,6 +63,7 @@ export default class WorkExperienceSection extends React.Component {
 
         return (
             <div className="work-experience-section">
+                <h4 className="section-title">Work Experience</h4>
                 {workExperiences}
                 {addWorkExperienceButton}
             </div>

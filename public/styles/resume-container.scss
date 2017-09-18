@@ -1,9 +1,21 @@
-.inline-form {
-  position: relative;
-  border: solid 1px transparent;
+#resume-container {
 
-  &:hover {
-    border-color: #aaa;
+  /* Viewing Resume */
+
+  .section-title {
+    font-weight: bold;
+  }
+
+  /* Resume Edit Form */
+
+  .inline-form {
+    position: relative;
+    border: solid 1px transparent;
+
+    &:hover {
+      border-color: #aaa;
+    }
+
   }
 
 }
