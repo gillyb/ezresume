@@ -22,8 +22,10 @@ module.exports = {
                 companyName: 'Logz.io',
                 companyWebsite: 'http://logz.io',
                 jobTitle: 'Front-End Team Leader',
-                startDate: new Date(),
-                endDate: new Date(),
+                period: {
+                    startDate: { day:0, month:2, year:2015 },
+                    endDate: { day:0, month:12, year:2016 }
+                },
                 summary: 'Was the best there, so they fired me',
                 bullets: [
                     'Was the best',

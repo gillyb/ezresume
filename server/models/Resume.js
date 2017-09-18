@@ -13,8 +13,18 @@ var resumeSchema = mongoose.Schema({
         companyName: String,
         companyWebsite: String,
         jobTitle: String,
-        startDate: Date,
-        endDate: Date,
+        period: {
+            startDate: {
+                day: Number,
+                month: Number,
+                year: Number
+            },
+            endDate: {
+                day: Number,
+                month: Number,
+                year: Number
+            }
+        },
         summary: String,
         bullets: [String]
     }],
@@ -22,16 +32,36 @@ var resumeSchema = mongoose.Schema({
         school: String,
         degree: String,
         major: String,
-        startDate: Date,
-        endDate: Date,
+        period: {
+            startDate: {
+                day: Number,
+                month: Number,
+                year: Number
+            },
+            endDate: {
+                day: Number,
+                month: Number,
+                year: Number
+            }
+        },
         summary: String
     }],
     projects: [{
         projectName: String,
         role: String,
         website: String,
-        startDate: Date,
-        endDate: Date,
+        period: {
+            startDate: {
+                day: Number,
+                month: Number,
+                year: Number
+            },
+            endDate: {
+                day: Number,
+                month: Number,
+                year: Number
+            }
+        },
         summary: String
     }],
     skills: [String],

@@ -14,6 +14,7 @@ export default class WorkExperienceSection extends React.Component {
             { name: 'Company name', key: 'companyName', type: 'string' },
             { name: 'Company website', key: 'companyWebsite', type: 'string' },
             { name: 'Job title', key: 'jobTitle', type: 'string' },
+            { name: 'Period', key: 'period', type: 'timerange' },
             { name: 'Summary', key: 'summary', type: 'multiline' }
         ];
 

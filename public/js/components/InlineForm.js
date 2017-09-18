@@ -1,5 +1,7 @@
 import React from 'react';
 
+import TimeRangeEditor from './TimeRangeEditor';
+
 export default class InlineForm extends React.Component {
 
     constructor(props) {
@@ -79,20 +81,46 @@ export default class InlineForm extends React.Component {
                             />
                         );
                         break;
+                    case 'timerange':
+                        fieldValues.push(
+                            <TimeRangeEditor
+                                key={fieldInfo.key}
+                                startDate={fieldInfo.value['startDate']}
+                                endDate={fieldInfo.value['endDate']}
+                            />
+                        );
+                        break;
                 }
             });
         }
         else {
             this.state.fields.forEach((fieldInfo) => {
-                if (fieldInfo.value)
-                    fieldValues.push(
-                        <div
-                            className="form-value"
-                            key={fieldInfo.key}
-                        >
-                            {fieldInfo.value.split('\n').map((line, index) => <span key={index}>{line}<br/></span>)}
-                        </div>
-                    );
+                if (fieldInfo.value) {
+                    if (fieldInfo.type === 'string' || fieldInfo.type === 'multiline') {
+                        fieldValues.push(
+                            <div
+                                className="form-value"
+                                key={fieldInfo.key}
+                            >
+                                {fieldInfo.value.split('\n').map((line, index) => <span key={index}>{line}<br/></span>)}
+                            </div>
+                        );
+                    }
+                    else if (fieldInfo.type === 'timerange') {
+                        fieldValues.push(
+                            // TODO: This isn't really nice. Make this look much better!
+                            <div className="timerange" key={fieldInfo.key}>
+                                {fieldInfo.value.startDate.day ? <span>{fieldInfo.value.startDate.day}</span> : ''}
+                                {fieldInfo.value.startDate.month ? <span>{fieldInfo.value.startDate.month}</span> : ''}
+                                {fieldInfo.value.startDate.year ? <span>{fieldInfo.value.startDate.year}</span> : ''}
+                                <span className="separator"> - </span>
+                                {fieldInfo.value.endDate.day ? <span>{fieldInfo.value.endDate.day}</span> : ''}
+                                {fieldInfo.value.endDate.month ? <span>{fieldInfo.value.endDate.month}</span> : ''}
+                                {fieldInfo.value.endDate.year ? <span>{fieldInfo.value.endDate.year}</span> : ''}
+                            </div>
+                        );
+                    }
+                }
             });
         }
 
