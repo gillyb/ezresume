@@ -1,11 +1,5 @@
 extends layout.pug
 
 block body
-    .container.resume-container
-        .general-details
-            .editable.full-name Gilly Barr
-            .editable.job-title Senior Full-Stack Engineer
-            .editable.about.
-                Highly motivated and passionate full stack developer. Building websites since the age of 13.
-
-    .container#test-container
+    #resume-object.hidden #{JSON.stringify(resume)}
+    .container#resume-container

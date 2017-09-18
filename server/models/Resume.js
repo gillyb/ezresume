@@ -4,8 +4,10 @@ var resumeSchema = mongoose.Schema({
 
     userId: mongoose.Schema.ObjectId,
 
-    jobTitle: String,
-    aboutYou: String,
+    generalDetails: {
+        jobTitle: String,
+        aboutYou: String,
+    },
 
     workExperience: [{
         companyName: String,

@@ -1,7 +1,11 @@
+const resumeService = require('./../services/resume-service');
+
 module.exports = (app) => {
 
     app.get('/', (req, res) => {
-        res.render('main');
+        resumeService.getDemoResume().then((demoResume) => {
+            res.render('main', { resume: demoResume });
+        });
     });
 
 };

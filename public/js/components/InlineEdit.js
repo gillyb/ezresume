@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 
 export default class InlineEdit extends React.Component {
 
@@ -17,6 +18,16 @@ export default class InlineEdit extends React.Component {
         this.handleChange = this.handleChange.bind(this);
     }
 
+    componentDidUpdate(prevProps, prevState) {
+        let inputElem = ReactDOM.findDOMNode(this.refs.input);
+        if (this.state.editing && !prevState.editing) {
+            inputElem.focus();
+            inputElem.setSelectionRange(0, inputElem.value.length);
+        } else if (this.state.editing && prevProps.value != this.props.value) {
+            this.finishEditing();
+        }
+    }
+
     startEdit() {
         this.setState({ editing: true });
     }
@@ -32,8 +43,10 @@ export default class InlineEdit extends React.Component {
 
     finishEditing() {
         this.setState({ editing: false });
-        // TODO: bubble this change up, by calling an event given to change the state
-        window.alert('saved');
+        this.props.onUpdate({
+            name: this.props.name,
+            value: this.state.value
+        });
     }
 
     cancelEditing() {
@@ -52,6 +65,7 @@ export default class InlineEdit extends React.Component {
             return (
                 <input
                     type="text"
+                    ref="input"
                     value={this.state.value}
                     onChange={this.handleChange}
                     onKeyDown={this.keyDown}

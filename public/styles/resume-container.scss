@@ -1,0 +1,9 @@
+.inline-form {
+  position: relative;
+  border: solid 1px transparent;
+
+  &:hover {
+    border-color: #aaa;
+  }
+
+}
