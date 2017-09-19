@@ -127,7 +127,7 @@ export default class InlineForm extends React.Component {
                         case 'multiline':
                             fieldValues.push(
                                 <div
-                                    className="form-value"
+                                    className={fieldInfo.key + ' form-value'}
                                     key={fieldInfo.key}
                                 >
                                     {fieldInfo.value.split('\n').map((line, index) => <span key={index}>{line}<br/></span>)}
@@ -138,7 +138,7 @@ export default class InlineForm extends React.Component {
                         case 'timerange':
                             fieldValues.push(
                                 // TODO: This isn't really nice. Make this look much better!
-                                <div className="timerange" key={fieldInfo.key}>
+                                <div className="timerange form-value" key={fieldInfo.key}>
                                     {fieldInfo.value.startDate.day ? <span>{fieldInfo.value.startDate.day}</span> : ''}
                                     {fieldInfo.value.startDate.month ? <span>{fieldInfo.value.startDate.month}</span> : ''}
                                     {fieldInfo.value.startDate.year ? <span>{fieldInfo.value.startDate.year}</span> : ''}

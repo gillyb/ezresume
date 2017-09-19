@@ -31,6 +31,7 @@ export default class ResumeContainer extends React.Component {
 
         return (
             <div className="resume-container">
+                <h1 className="full-name">{this.state.resumeObject.fullName}</h1>
                 <GeneralDetailsSection
                     formFields={this.state.resumeObject.generalDetails}
                     onUpdate={this.saveResume}

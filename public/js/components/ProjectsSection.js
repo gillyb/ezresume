@@ -65,7 +65,7 @@ export default class ProjectsSection extends React.Component {
         });
 
         return (
-            <div className="projects-section">
+            <div className="resume-section projects">
                 <h4 className="section-title">Projects</h4>
                 {projects}
                 {addProjectButton}

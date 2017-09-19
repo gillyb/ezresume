@@ -2,8 +2,37 @@
 
   /* Viewing Resume */
 
+  .resume-section {
+
+    position: relative;
+    margin-bottom: 32px;
+
+    .section-title {
+      color: #aaa;
+      margin-bottom: 16px;
+    }
+
+    &.work-experience {
+      .companyName {
+        display: inline-block;
+        font-weight: bold;
+        margin-right: 20px;
+      }
+      .companyWebsite {
+        display: inline-block;
+        color: #aaa;
+        font-style: italic;
+      }
+      .timerange {
+        position: absolute;
+        top: 0; right: 0;
+      }
+    }
+  }
+
   .section-title {
     font-weight: bold;
+    text-transform: uppercase;
   }
 
   /* Resume Edit Form */

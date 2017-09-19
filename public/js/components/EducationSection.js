@@ -65,7 +65,7 @@ export default class EducationSection extends React.Component {
         });
 
         return (
-            <div className="education-section">
+            <div className="resume-section education">
                 <h4 className="section-title">Education</h4>
                 {educations}
                 {addEducationButton}

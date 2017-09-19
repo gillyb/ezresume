@@ -31,10 +31,12 @@ export default class GeneralDetailsSection extends React.Component {
         });
 
         return (
-            <InlineForm
-                formFields={displayFields}
-                onSave={this.onSave}
-            />
+            <div className="resume-section general-details">
+                <InlineForm
+                    formFields={displayFields}
+                    onSave={this.onSave}
+                />
+            </div>
         );
     }
 
