@@ -45,7 +45,7 @@ export default class SkillsSection extends React.Component {
         formFields[0].value = this.state.skills;
 
         return (
-            <div className="skills-section">
+            <div className="resume-section skills">
                 <h4 className="section-title">Skills</h4>
                 <InlineForm
                     formFields={formFields}

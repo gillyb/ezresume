@@ -1,8 +1,26 @@
 #resume-container {
 
+  margin: 50px auto;
+  padding: 50px;
+  border: solid 1px #eee;
+  max-width: 1000px;
+
+  h1, h2, h3, h4, h5, h6 {
+    letter-spacing: 2px;
+  }
+
   /* Viewing Resume */
 
+  .section-title {
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
   .resume-section {
+
+    .fullName {
+      font-weight: 600;
+    }
 
     position: relative;
     margin-bottom: 32px;
@@ -10,29 +28,96 @@
     .section-title {
       color: #aaa;
       margin-bottom: 16px;
+      font-size: 1.2rem;
+    }
+
+    &.general-details {
+      line-height: 1.35em;
+      .jobTitle {
+        font-weight: 500;
+      }
+      .aboutYou {
+        font-weight: 300;
+      }
     }
 
     &.work-experience {
       .companyName {
         display: inline-block;
-        font-weight: bold;
         margin-right: 20px;
+        font-weight: 800;
+        line-height: 1.35rem;
+      }
+      .jobTitle {
+        font-weight: 500;
+        line-height: 1.35rem;
       }
       .companyWebsite {
         display: inline-block;
         color: #aaa;
         font-style: italic;
+        line-height: 1.35rem;
       }
       .timerange {
         position: absolute;
         top: 0; right: 0;
       }
+      .summary {
+        font-weight: 300;
+        margin: 8px 0;
+      }
+      .bullets {
+        font-weight: 300;
+        line-height: 1.4rem;
+      }
     }
-  }
 
-  .section-title {
-    font-weight: bold;
-    text-transform: uppercase;
+    &.education {
+      .school {
+        font-weight: 800;
+        line-height: 1.35rem;
+      }
+      .degree {
+        display: inline-block;
+        font-weight: 500;
+        line-height: 1.35rem;
+        margin-right: 8px;
+      }
+      .major {
+        display: inline-block;
+        color: #aaa;
+        line-height: 1.35rem;
+      }
+      .timerange {
+        position: absolute;
+        top: 0; right: 0;
+      }
+      .summary {
+        font-weight: 300;
+        margin: 8px 0;
+      }
+      .bullets {
+        font-weight: 300;
+        line-height: 1.4rem;
+      }
+    }
+
+    &.skills {
+      ul.bullets {
+        list-style: none;
+        margin: 0; padding: 0;
+        li {
+          display: inline-block;
+          background-color: #eee;
+          padding: 2px 12px;
+          margin-right: 8px;
+          border-radius: 3px;
+          font-size: 0.9rem;
+          font-weight: 500;
+          color: #555;
+        }
+      }
+    }
   }
 
   /* Resume Edit Form */
