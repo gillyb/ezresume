@@ -31,11 +31,14 @@ export default class EducationSection extends React.Component {
     }
 
     onSave(updatedFields) {
+        if (this.props.publicView)
+            return;
+
         this.props.onUpdate(updatedFields);
     }
 
     render() {
-        const addEducationButton = (
+        const addEducationButton = !this.props.publicView ? (
             <div className="add-section">
                 <button
                     type="button"
@@ -43,9 +46,9 @@ export default class EducationSection extends React.Component {
                     onClick={this.addEducation}
                 >Add Education</button>
             </div>
-        );
+        ) : <div className="hidden empty" />;
 
-        if (!this.state.education) {
+        if (!this.state.education || !this.state.education.length) {
             return addEducationButton;
         }
 
@@ -61,6 +64,7 @@ export default class EducationSection extends React.Component {
                 formFields={formFields}
                 key={index}
                 onSave={this.onSave}
+                publicView={this.props.publicView}
             />
         });
 

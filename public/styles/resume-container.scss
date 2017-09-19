@@ -1,4 +1,4 @@
-#resume-container {
+.resume-container {
 
   margin: 50px auto;
   padding: 50px;
@@ -122,12 +122,16 @@
 
   /* Resume Edit Form */
 
-  .inline-form {
-    position: relative;
-    border: solid 1px transparent;
+  &.edit-mode {
 
-    &:hover {
-      border-color: #aaa;
+    .inline-form {
+      position: relative;
+      border: solid 1px transparent;
+
+      &:hover {
+        border-color: #aaa;
+      }
+
     }
 
   }

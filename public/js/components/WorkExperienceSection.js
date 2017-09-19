@@ -31,11 +31,14 @@ export default class WorkExperienceSection extends React.Component {
     }
 
     onSave(updatedFields) {
+        if (this.props.publicView)
+            return;
+
         this.props.onUpdate(updatedFields);
     }
 
     render() {
-        const addWorkExperienceButton = (
+        const addWorkExperienceButton = !this.props.publicView ? (
             <div className="add-section">
                 <button
                     type="button"
@@ -43,9 +46,9 @@ export default class WorkExperienceSection extends React.Component {
                     onClick={this.addWorkExperience}
                 >Add Work Experience</button>
             </div>
-        );
+        ) : <div className="hidden empty" />;
 
-        if (!this.state.workExperience) {
+        if (!this.state.workExperience || !this.state.workExperience.length) {
             return addWorkExperienceButton;
         }
 
@@ -61,6 +64,7 @@ export default class WorkExperienceSection extends React.Component {
                 formFields={formFields}
                 key={index}
                 onSave={this.onSave}
+                publicView={this.props.publicView}
             />
         });
 

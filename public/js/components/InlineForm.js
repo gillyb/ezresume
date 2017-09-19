@@ -22,6 +22,9 @@ export default class InlineForm extends React.Component {
     }
 
     handleUpdate() {
+        if (this.props.publicView)
+            return;
+
         this.props.onSave(this.state.fields);
         this.setState({ editing: false });
     }
@@ -34,6 +37,9 @@ export default class InlineForm extends React.Component {
     }
 
     startEditing() {
+        if (this.props.publicView)
+            return;
+
         if (!this.state.editing)
             this.setState({ editing: true });
     }
@@ -53,6 +59,9 @@ export default class InlineForm extends React.Component {
     }
 
     updateTimeRange(timerangeField, newState) {
+        if (this.props.publicView)
+            return;
+
         let updatedFields = this.cloneArray(this.state.fields);
         let updatedTimeRange = _.find(updatedFields, (field) => field.key === 'period');
         if (!updatedTimeRange.value)
@@ -67,7 +76,7 @@ export default class InlineForm extends React.Component {
     render() {
         let fieldValues = [];
 
-        if (this.state.editing) {
+        if (this.state.editing && !this.props.publicView) {
             this.state.fields.forEach((fieldInfo) => {
 
                 switch (fieldInfo.type) {
@@ -168,7 +177,7 @@ export default class InlineForm extends React.Component {
             <div className="inline-form form-group" onClick={this.startEditing}>
                 {fieldValues}
 
-                {!this.state.editing ? '' :
+                {!this.state.editing || this.props.publicView ? '' :
                     <div className="actions">
                         <button type="button" className="btn btn-primary btn-sm" onClick={this.handleUpdate}>Save</button>
                         <button type="button" className="btn btn-secondary btn-sm" onClick={this.handleCancel}>Cancel</button>

@@ -23,11 +23,14 @@ export default class SkillsSection extends React.Component {
     }
 
     onSave(updatedFields) {
+        if (this.props.publicView)
+            return;
+
         this.props.onUpdate(updatedFields);
     }
 
     render() {
-        const addSkillsButton = (
+        const addSkillsButton = !this.props.publicView ? (
             <div className="add-section">
                 <button
                     type="button"
@@ -35,9 +38,9 @@ export default class SkillsSection extends React.Component {
                     onClick={this.addSkills}
                 >Add Skills</button>
             </div>
-        );
+        ) : <div className="hidden empty" />;
 
-        if (!this.state.skills) {
+        if (!this.state.skills || !this.state.skills.length) {
             return addSkillsButton;
         }
 
@@ -50,6 +53,7 @@ export default class SkillsSection extends React.Component {
                 <InlineForm
                     formFields={formFields}
                     onSave={this.onSave}
+                    publicView={this.props.publicView}
                 />
             </div>
         );

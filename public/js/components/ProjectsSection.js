@@ -31,11 +31,14 @@ export default class ProjectsSection extends React.Component {
     }
 
     onSave(updatedFields) {
+        if (this.props.publicView)
+            return;
+
         this.props.onUpdate(updatedFields);
     }
 
     render() {
-        const addProjectButton = (
+        const addProjectButton = !this.props.publicView ? (
             <div className="add-section">
                 <button
                     type="button"
@@ -43,9 +46,9 @@ export default class ProjectsSection extends React.Component {
                     onClick={this.addProject}
                 >Add Project</button>
             </div>
-        );
+        ) : <div className="hidden empty" />;
 
-        if (!this.state.projects) {
+        if (!this.state.projects || !this.state.projects.length) {
             return addProjectButton;
         }
 
@@ -61,6 +64,7 @@ export default class ProjectsSection extends React.Component {
                 formFields={formFields}
                 key={index}
                 onSave={this.onSave}
+                publicView={this.props.publicView}
             />
         });
 

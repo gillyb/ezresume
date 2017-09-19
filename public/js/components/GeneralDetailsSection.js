@@ -19,6 +19,9 @@ export default class GeneralDetailsSection extends React.Component {
     }
 
     onSave(updatedFields) {
+        if (this.props.publicView)
+            return;
+
         this.props.onUpdate(updatedFields);
     }
 
@@ -35,6 +38,7 @@ export default class GeneralDetailsSection extends React.Component {
                 <InlineForm
                     formFields={displayFields}
                     onSave={this.onSave}
+                    publicView={this.props.publicView}
                 />
             </div>
         );
