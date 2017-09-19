@@ -41,25 +41,16 @@ export default class SkillsSection extends React.Component {
             return addSkillsButton;
         }
 
-        const skills = this.state.skills.map((section, index) => {
-            const formFields = this.template.map((templateField) => {
-                let field = Object.assign({}, templateField);
-                if (section.hasOwnProperty(field.key))
-                    field.value = section[field.key];
-                return field;
-            });
-
-            return <InlineForm
-                formFields={formFields}
-                key={index}
-                onSave={this.onSave}
-            />
-        });
+        let formFields = this.template.slice();
+        formFields[0].value = this.state.skills;
 
         return (
             <div className="skills-section">
                 <h4 className="section-title">Skills</h4>
-                {skills}
+                <InlineForm
+                    formFields={formFields}
+                    onSave={this.onSave}
+                />
             </div>
         );
     }

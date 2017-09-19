@@ -2,7 +2,11 @@ const mongoose = require('mongoose');
 
 var resumeSchema = mongoose.Schema({
 
+    // TODO: add themes settings
+
     userId: mongoose.Schema.ObjectId,
+
+    fullName: String,
 
     generalDetails: {
         jobTitle: String,
@@ -66,7 +70,8 @@ var resumeSchema = mongoose.Schema({
                 year: Number
             }
         },
-        summary: String
+        summary: String,
+        bullets: [String]
     }],
     skills: [String],
     contactInfo: {

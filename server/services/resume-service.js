@@ -13,9 +13,15 @@ module.exports = {
         return Promise.resolve({
             userId: new mongoose.Types.ObjectId(),
 
+            fullName: 'Gilly Barr',
+
             generalDetails: {
                 jobTitle: 'Senior Full Stack Engineer',
                 aboutYou: 'I am the best, no doubt! word!',
+                socialMedia: [
+                    'http://facebook.com/gilly-barr',
+                    'https://github.com/gillyb'
+                ]
             },
 
             workExperience: [{
@@ -37,16 +43,20 @@ module.exports = {
                 school: 'The Open University',
                 degree: 'B.Sc.',
                 major: 'Computer Science',
-                startDate: new Date(),
-                endDate: new Date(),
-                summary: 'Finished as the best in my class.'
+                period: {
+                    startDate: { day:0, month:0, year:0 },
+                    endDate: { day:0, month:0, year:0 }
+                },
+                summary: 'Finished as the best in my class.',
             }],
             // projects: [{
             //     projectName: String,
             //     role: String,
             //     website: String,
-            //     startDate: Date,
-            //     endDate: Date,
+            //     period: {
+            //         startDate: { day:0, month:0, year:0 },
+            //         endDate: { day:0, month:0, year:0 }
+            //     },
             //     summary: String
             // }],
             skills: ['C#', 'Java', 'NodeJS', 'ElasticSearch'],
