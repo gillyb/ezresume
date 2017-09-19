@@ -3,8 +3,11 @@ import _ from 'lodash';
 
 import TimeRangeEditor from './TimeRangeEditor';
 import BulletsEditor from './BulletsEditor';
+import DisplayTimeRange from './DisplayTimeRange';
 
 export default class InlineForm extends React.Component {
+
+    // TODO: extract some components from this
 
     constructor(props) {
         super(props);
@@ -146,16 +149,11 @@ export default class InlineForm extends React.Component {
 
                         case 'timerange':
                             fieldValues.push(
-                                // TODO: This isn't really nice. Make this look much better!
-                                <div className="timerange form-value" key={fieldInfo.key}>
-                                    {fieldInfo.value.startDate.day ? <span>{fieldInfo.value.startDate.day}</span> : ''}
-                                    {fieldInfo.value.startDate.month ? <span>{fieldInfo.value.startDate.month}</span> : ''}
-                                    {fieldInfo.value.startDate.year ? <span>{fieldInfo.value.startDate.year}</span> : ''}
-                                    <span className="separator"> - </span>
-                                    {fieldInfo.value.endDate.day ? <span>{fieldInfo.value.endDate.day}</span> : ''}
-                                    {fieldInfo.value.endDate.month ? <span>{fieldInfo.value.endDate.month}</span> : ''}
-                                    {fieldInfo.value.endDate.year ? <span>{fieldInfo.value.endDate.year}</span> : ''}
-                                </div>
+                                <DisplayTimeRange
+                                    key={fieldInfo.key}
+                                    startDate={fieldInfo.value.startDate}
+                                    endDate={fieldInfo.value.endDate}
+                                />
                             );
                             break;
 

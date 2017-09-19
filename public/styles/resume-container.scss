@@ -18,12 +18,22 @@
 
   .resume-section {
 
+    .timerange {
+      line-height: 1.35rem;
+      font-style: italic;
+      color: #999;
+    }
+
+    .inline-form.form-group {
+      position: relative;
+    }
+
     .fullName {
       font-weight: 600;
     }
 
     position: relative;
-    margin-bottom: 32px;
+    margin-bottom: 40px;
 
     .section-title {
       color: #aaa;
