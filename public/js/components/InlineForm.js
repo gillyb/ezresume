@@ -55,6 +55,11 @@ export default class InlineForm extends React.Component {
     updateTimeRange(timerangeField, newState) {
         let updatedFields = this.cloneArray(this.state.fields);
         let updatedTimeRange = _.find(updatedFields, (field) => field.key === 'period');
+        if (!updatedTimeRange.value)
+            updatedTimeRange.value = {
+                startDate: { day: 0, month: 0, year: 0 },
+                endDate: { day: 0, month: 0, year: 0 }
+            };
         updatedTimeRange.value[timerangeField] = newState;
         this.setState({ fields: updatedFields });
     }
@@ -95,8 +100,8 @@ export default class InlineForm extends React.Component {
                         fieldValues.push(
                             <TimeRangeEditor
                                 key={fieldInfo.key}
-                                startDate={fieldInfo.value.startDate}
-                                endDate={fieldInfo.value.endDate}
+                                startDate={fieldInfo.value ? fieldInfo.value.startDate : undefined}
+                                endDate={fieldInfo.value ? fieldInfo.value.endDate : undefined}
                                 onUpdate={this.updateTimeRange}
                             />
                         );

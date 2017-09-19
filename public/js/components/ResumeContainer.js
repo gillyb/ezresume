@@ -3,6 +3,8 @@ import React from 'react';
 import GeneralDetailsSection from './GeneralDetailsSection';
 import WorkExperienceSection from './WorkExperienceSection';
 import EducationSection from "./EducationSection";
+import ProjectsSection from "./ProjectsSection";
+import SkillsSection from "./SkillsSection";
 
 export default class ResumeContainer extends React.Component {
 
@@ -39,6 +41,14 @@ export default class ResumeContainer extends React.Component {
                 />
                 <EducationSection
                     education={this.state.resumeObject.education}
+                    onUpdate={this.saveResume}
+                />
+                <ProjectsSection
+                    projects={this.state.resumeObject.projects}
+                    onUpdate={this.saveResume}
+                />
+                <SkillsSection
+                    skills={this.state.resumeObject.skills}
                     onUpdate={this.saveResume}
                 />
             </div>

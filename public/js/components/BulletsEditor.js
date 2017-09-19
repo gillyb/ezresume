@@ -6,13 +6,14 @@ export default class BulletsEditor extends React.Component {
         super(props);
 
         this.state = {
-            bullets: this.props.bullets
+            bullets: this.props.bullets || []
         };
 
         this.handleChange = this.handleChange.bind(this);
     }
 
     handleChange(event) {
+        // TODO: finish implementation
         // this.setState({  })
     }
 

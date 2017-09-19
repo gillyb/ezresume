@@ -6,16 +6,14 @@ export default class DateInput extends React.Component {
         super(props);
 
         this.state = {
-            day: this.props.date.day,
-            month: this.props.date.month,
-            year: this.props.date.year
+            date: this.props.date || { day: 0, month: 0, year: 0 }
         };
 
         this.handleChange = this.handleChange.bind(this);
     }
 
     handleChange(event) {
-        let updatedState = Object.assign({}, this.state);
+        let updatedState = Object.assign({}, this.props.date);
         updatedState[event.target.name] = parseInt(event.target.value);
         this.props.onUpdate(updatedState);
     }
@@ -34,15 +32,15 @@ export default class DateInput extends React.Component {
 
         return (
             <div className="date-input">
-                <select name="day" value={this.props.date.day} onChange={this.handleChange}>
+                <select name="day" value={_.get(this.props, 'date.day') ? this.props.date.day : 0} onChange={this.handleChange}>
                     <option value="0">Day</option>
                     {days}
                 </select>
-                <select name="month" value={this.state.month} onChange={this.handleChange}>
+                <select name="month" value={_.get(this.props, 'date.month') ? this.props.date.month : 0} onChange={this.handleChange}>
                     <option value="0">Month</option>
                     {months}
                 </select>
-                <select name="year" value={this.props.date.year} onChange={this.handleChange}>
+                <select name="year" value={_.get(this.props, 'date.year') ? this.props.date.year : 0} onChange={this.handleChange}>
                     <option value="0">Year</option>
                     {years}
                 </select>
