@@ -15,7 +15,9 @@ export default class DateInput extends React.Component {
     }
 
     handleChange(event) {
-        this.setState({ [event.target.name]: event.target.value });
+        let updatedState = Object.assign({}, this.state);
+        updatedState[event.target.name] = parseInt(event.target.value);
+        this.props.onUpdate(updatedState);
     }
 
     render() {
@@ -32,7 +34,7 @@ export default class DateInput extends React.Component {
 
         return (
             <div className="date-input">
-                <select name="day" value={this.state.day} onChange={this.handleChange}>
+                <select name="day" value={this.props.date.day} onChange={this.handleChange}>
                     <option value="0">Day</option>
                     {days}
                 </select>
@@ -40,7 +42,7 @@ export default class DateInput extends React.Component {
                     <option value="0">Month</option>
                     {months}
                 </select>
-                <select name="year" value={this.state.year} onChange={this.handleChange}>
+                <select name="year" value={this.props.date.year} onChange={this.handleChange}>
                     <option value="0">Year</option>
                     {years}
                 </select>

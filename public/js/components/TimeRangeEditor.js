@@ -9,7 +9,18 @@ export default class TimeRangeEditor extends React.Component {
         this.state = {
             startDate: this.props.startDate,
             endDate: this.props.endDate
-        }
+        };
+
+        this.updateStartDate = this.updateStartDate.bind(this);
+        this.updateEndDate = this.updateEndDate.bind(this);
+    }
+
+    updateStartDate(newState) {
+        this.props.onUpdate('startDate', newState);
+    }
+
+    updateEndDate(newState) {
+        this.props.onUpdate('endDate', newState);
     }
 
     render() {
@@ -17,11 +28,19 @@ export default class TimeRangeEditor extends React.Component {
             <div className="timerange-edit">
                 <div className="start-date">
                     <span className="label">From : </span>
-                    <DateInput date={this.state.startDate} />
+                    <DateInput
+                        name="startDate"
+                        date={this.props.startDate}
+                        onUpdate={this.updateStartDate}
+                    />
                 </div>
                 <div className="end-date">
                     <span className="label">To : </span>
-                    <DateInput date={this.state.endDate} allowCurrent={true} />
+                    <DateInput
+                        name="endDate"
+                        date={this.props.endDate}
+                        onUpdate={this.updateEndDate}
+                        allowCurrent={true} />
                 </div>
             </div>
         );

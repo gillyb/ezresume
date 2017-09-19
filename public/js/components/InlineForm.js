@@ -1,4 +1,5 @@
 import React from 'react';
+import _ from 'lodash';
 
 import TimeRangeEditor from './TimeRangeEditor';
 import BulletsEditor from './BulletsEditor';
@@ -17,6 +18,7 @@ export default class InlineForm extends React.Component {
         this.handleCancel = this.handleCancel.bind(this);
         this.startEditing = this.startEditing.bind(this);
         this.handleChange = this.handleChange.bind(this);
+        this.updateTimeRange = this.updateTimeRange.bind(this);
     }
 
     handleUpdate() {
@@ -47,6 +49,13 @@ export default class InlineForm extends React.Component {
             if (field.key === event.target.name)
                 field.value = event.target.value;
         });
+        this.setState({ fields: updatedFields });
+    }
+
+    updateTimeRange(timerangeField, newState) {
+        let updatedFields = this.cloneArray(this.state.fields);
+        let updatedTimeRange = _.find(updatedFields, (field) => field.key === 'period');
+        updatedTimeRange.value[timerangeField] = newState;
         this.setState({ fields: updatedFields });
     }
 
@@ -86,8 +95,9 @@ export default class InlineForm extends React.Component {
                         fieldValues.push(
                             <TimeRangeEditor
                                 key={fieldInfo.key}
-                                startDate={fieldInfo.value['startDate']}
-                                endDate={fieldInfo.value['endDate']}
+                                startDate={fieldInfo.value.startDate}
+                                endDate={fieldInfo.value.endDate}
+                                onUpdate={this.updateTimeRange}
                             />
                         );
                         break;
