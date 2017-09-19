@@ -44,7 +44,8 @@ var resumeSchema = mongoose.Schema({
                 year: Number
             }
         },
-        summary: String
+        summary: String,
+        bullets: [String]
     }],
     projects: [{
         projectName: String,

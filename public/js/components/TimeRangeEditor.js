@@ -6,6 +6,7 @@ export default class TimeRangeEditor extends React.Component {
     constructor(props) {
         super(props);
 
+        // TODO: I think i can delete this, since I don't really use it.
         this.state = {
             startDate: this.props.startDate,
             endDate: this.props.endDate

@@ -14,7 +14,9 @@ export default class EducationSection extends React.Component {
             { name: 'School', key: 'school', type: 'string' },
             { name: 'Degree', key: 'degree', type: 'string' },
             { name: 'Major', key: 'major', type: 'string' },
-            { name: 'Summary', key: 'summary', type: 'multiline' }
+            { name: 'Period', key: 'period', type: 'timerange' },
+            { name: 'Summary', key: 'summary', type: 'multiline' },
+            { name: 'Bullets', key: 'bullets', type: 'bullets' }
         ];
 
         this.addEducation = this.addEducation.bind(this);
@@ -22,10 +24,10 @@ export default class EducationSection extends React.Component {
     }
 
     addEducation() {
-        // let updatedWorkExperience = this.state.workExperience.slice();
-        // updatedWorkExperience.push(this.template.slice());       // TODO: maybe add some random values here for the user to start with
-        //
-        // this.setState({ workExperience: updatedWorkExperience });
+        let updatedEducation = this.state.education.slice();
+        updatedEducation.push(this.template.slice());       // TODO: maybe add some random values here for the user to start with
+
+        this.setState({ education: updatedEducation });
     }
 
     onSave(updatedFields) {
