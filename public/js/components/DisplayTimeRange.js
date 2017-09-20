@@ -8,7 +8,21 @@ export default class DisplayTimeRange extends React.Component {
         this.months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
     }
 
+    isEmptyDate(dateObject) {
+
+        if (!dateObject)
+            return true;
+
+        if (!dateObject.day && !dateObject.month && !dateObject.year)
+            return true;
+
+        return false;
+    }
+
     render() {
+
+        if (this.isEmptyDate(this.props.startDate) && this.isEmptyDate(this.props.endDate))
+            return null;
 
         // start date
         let startDate;
