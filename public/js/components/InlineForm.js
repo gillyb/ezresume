@@ -85,27 +85,31 @@ export default class InlineForm extends React.Component {
                 switch (fieldInfo.type) {
                     case 'string':
                         fieldValues.push(
-                            <input
-                                type="text"
-                                className="form-control"
-                                key={fieldInfo.key}
-                                name={fieldInfo.key}
-                                value={fieldInfo.value}
-                                placeholder={fieldInfo.name}
-                                onChange={this.handleChange}
-                            />
+                            <div className="form-group">
+                                <input
+                                    type="text"
+                                    className="form-control form-control-sm"
+                                    key={fieldInfo.key}
+                                    name={fieldInfo.key}
+                                    value={fieldInfo.value}
+                                    placeholder={fieldInfo.name}
+                                    onChange={this.handleChange}
+                                />
+                            </div>
                         );
                         break;
                     case 'multiline':
                         fieldValues.push(
-                            <textarea
-                                className="form-control"
-                                key={fieldInfo.key}
-                                name={fieldInfo.key}
-                                value={fieldInfo.value}
-                                placeholder={fieldInfo.name}
-                                onChange={this.handleChange}
-                            />
+                            <div className="form-group">
+                                <textarea
+                                    className="form-control form-control-sm"
+                                    key={fieldInfo.key}
+                                    name={fieldInfo.key}
+                                    value={fieldInfo.value}
+                                    placeholder={fieldInfo.name}
+                                    onChange={this.handleChange}
+                                />
+                            </div>
                         );
                         break;
                     case 'timerange':
@@ -171,8 +175,10 @@ export default class InlineForm extends React.Component {
             });
         }
 
+        const formClass = 'inline-form' + (this.state.editing ? ' edit-mode' : '');
+
         return (
-            <div className="inline-form form-group" onClick={this.startEditing}>
+            <div className={formClass} onClick={this.startEditing}>
                 {fieldValues}
 
                 {!this.state.editing || this.props.publicView ? '' :
@@ -181,6 +187,8 @@ export default class InlineForm extends React.Component {
                         <button type="button" className="btn btn-secondary btn-sm" onClick={this.handleCancel}>Cancel</button>
                     </div>
                 }
+
+                <span className="click-to-edit">Click to edit</span>
             </div>
         );
     }

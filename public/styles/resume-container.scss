@@ -130,16 +130,85 @@
     }
   }
 
-  /* Resume Edit Form */
+
+
+
+  /* Editing Resume */
 
   &.edit-mode {
+
+    .resume-section {
+      position: relative;
+      .add-section {
+        display: none;
+        position: absolute;
+        left: -200px;
+        bottom: -20px;
+        svg {
+          vertical-align: middle;
+          margin-top: -3px;
+          margin-left: 10px;
+        }
+      }
+
+      &:hover .add-section {
+        display: inline-block;
+      }
+    }
 
     .inline-form {
       position: relative;
       border: solid 1px transparent;
 
+      .form-group {
+        margin-bottom: 0.6rem;
+      }
+
+      // TODO: move these to the top
+      $edit-area-hover-margin: 6px;
+      $click-to-edit-height: 23px;
+
+      .click-to-edit {
+        position: absolute;
+        bottom: -$click-to-edit-height;
+        left: -1px;
+        background-color: #aaa;
+        color: #fff;
+        display: none;
+        border-bottom-left-radius: 4px;
+        border-bottom-right-radius: 4px;
+        line-height: 22px;
+        font-size: 0.8rem;
+        letter-spacing: 1.2px;
+        padding: 0 10px;
+      }
+
+      .actions button[type="button"] {
+        margin-right: 0.6rem;
+      }
+
       &:hover {
         border-color: #aaa;
+        padding: $edit-area-hover-margin;
+        margin: (-$edit-area-hover-margin) (-$edit-area-hover-margin) ($click-to-edit-height + $edit-area-hover-margin) (-$edit-area-hover-margin);
+
+        .click-to-edit {
+          display: inline-block;
+        }
+
+        .timerange {
+          top: $edit-area-hover-margin;
+          right: $edit-area-hover-margin;
+        }
+      }
+
+      &.edit-mode {
+        &:hover {
+          border-color: transparent;
+          .click-to-edit {
+            display: none;
+          }
+        }
       }
 
     }
