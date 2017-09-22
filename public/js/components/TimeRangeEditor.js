@@ -27,16 +27,16 @@ export default class TimeRangeEditor extends React.Component {
     render() {
         return (
             <div className="timerange-edit">
-                <div className="start-date">
-                    <span className="label">From : </span>
+                <div className="start-date form-group row">
+                    <label className="col-sm-2 col-form-label">From</label>
                     <DateInput
                         name="startDate"
                         date={this.props.startDate}
                         onUpdate={this.updateStartDate}
                     />
                 </div>
-                <div className="end-date">
-                    <span className="label">To : </span>
+                <div className="end-date form-group row">
+                    <label className="col-sm-2 col-form-label">To</label>
                     <DateInput
                         name="endDate"
                         date={this.props.endDate}

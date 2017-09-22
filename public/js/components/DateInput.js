@@ -32,15 +32,15 @@ export default class DateInput extends React.Component {
 
         return (
             <div className="date-input">
-                <select name="day" value={_.get(this.props, 'date.day') ? this.props.date.day : 0} onChange={this.handleChange}>
+                <select name="day" className="form-control form-control-sm" value={_.get(this.props, 'date.day') ? this.props.date.day : 0} onChange={this.handleChange}>
                     <option value="0">Day</option>
                     {days}
                 </select>
-                <select name="month" value={_.get(this.props, 'date.month') ? this.props.date.month : 0} onChange={this.handleChange}>
+                <select name="month" className="form-control form-control-sm" value={_.get(this.props, 'date.month') ? this.props.date.month : 0} onChange={this.handleChange}>
                     <option value="0">Month</option>
                     {months}
                 </select>
-                <select name="year" value={_.get(this.props, 'date.year') ? this.props.date.year : 0} onChange={this.handleChange}>
+                <select name="year" className="form-control form-control-sm" value={_.get(this.props, 'date.year') ? this.props.date.year : 0} onChange={this.handleChange}>
                     <option value="0">Year</option>
                     {years}
                 </select>
