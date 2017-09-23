@@ -212,7 +212,7 @@
           right: $edit-area-hover-margin;
         }
 
-        & ~ .add-section {
+        & ~ .add-section {    // When .inline-section:hover happens, then this affects the .add-section that is it's sibling
           bottom: $add-section-bottom + $edit-area-hover-margin;
         }
       }
