@@ -40,6 +40,7 @@ export default class WorkExperienceSection extends React.Component {
     render() {
         const addWorkExperienceButton = !this.props.publicView ? (
             <div className="add-section">
+                {/* TODO: extract this button to something common */}
                 <button
                     type="button"
                     className="btn btn-sm btn-outline-secondary"

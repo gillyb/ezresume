@@ -42,14 +42,24 @@ export default class EducationSection extends React.Component {
             <div className="add-section">
                 <button
                     type="button"
-                    className="btn btn-primary"
+                    className="btn btn-sm btn-outline-secondary"
                     onClick={this.addEducation}
-                >Add Education</button>
+                >
+                    Add Education
+                    <svg fill="#868e96" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
+                    </svg>
+                </button>
             </div>
         ) : <div className="hidden empty" />;
 
         if (!this.state.education || !this.state.education.length) {
-            return addEducationButton;
+            return (
+                <div className="resume-section education">
+                    {addEducationButton}
+                </div>
+            );
         }
 
         const educations = this.state.education.map((section, index) => {
