@@ -137,12 +137,17 @@
 
   &.edit-mode {
 
+    // TODO: move these to the top
+    $edit-area-hover-margin: 6px;
+    $click-to-edit-height: 23px;
+    $add-section-bottom: -20px;
+
     .resume-section {
       position: relative;
       .add-section {
         position: absolute;
         left: -200px;
-        bottom: -20px;
+        bottom: $add-section-bottom;
         background-color: #fff;
         opacity: 0.6;
         button {
@@ -170,10 +175,6 @@
         margin-bottom: 0.6rem;
       }
 
-      // TODO: move these to the top
-      $edit-area-hover-margin: 6px;
-      $click-to-edit-height: 23px;
-
       .click-to-edit {
         position: absolute;
         top: -1px;
@@ -200,7 +201,7 @@
       &:hover {
         border-color: #aaa;
         padding: $edit-area-hover-margin;
-        margin: (-$edit-area-hover-margin) (-$edit-area-hover-margin) ($click-to-edit-height + $edit-area-hover-margin) (-$edit-area-hover-margin);
+        margin: (-$edit-area-hover-margin) (-$edit-area-hover-margin) (-$edit-area-hover-margin) (-$edit-area-hover-margin);
 
         .click-to-edit {
           display: inline-block;
@@ -209,6 +210,10 @@
         .timerange {
           top: $edit-area-hover-margin;
           right: $edit-area-hover-margin;
+        }
+
+        & ~ .add-section {
+          bottom: $add-section-bottom + $edit-area-hover-margin;
         }
       }
 
