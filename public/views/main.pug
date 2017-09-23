@@ -1,5 +1,9 @@
 extends layout.pug
 
 block body
+    #user-object.hidden #{JSON.stringify(user)}
     #resume-object.hidden #{JSON.stringify(resume)}
+
+    #header
+
     .container#resume-container

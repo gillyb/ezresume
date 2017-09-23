@@ -11,7 +11,8 @@ module.exports = (app) => {
     passport.use(new FacebookStrategy({
             clientID: config.auth.facebook.clientId,
             clientSecret: config.auth.facebook.clientSecret,
-            callbackURL: 'http://localhost:3000/login/facebook/return',
+            // TODO: extract this url to a config variable
+            callbackURL: 'http://localhost:5000/login/facebook/return',
             profileFields: ['id', 'email', 'name']      // Not all facebook users have emails
         },
         function (accessToken, refreshToken, profile, cb) {
@@ -46,6 +47,7 @@ module.exports = (app) => {
     });
 
     passport.deserializeUser(function(id, done) {
+        // TODO: maybe we should add some internal cache for this
         User.findById(id, function(err, user) {
             done(err, user);
         });
