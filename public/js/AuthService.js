@@ -1,21 +1,16 @@
-import { observable, action } from 'mobx';
+import EventEmitter from 'wolfy87-eventemitter';
 
-export default class AuthService {
-
-    @observable
-    authenticated = false;
+export default class AuthService extends EventEmitter {
 
     constructor() {
-        // this.authenticated = false;
+        super();
 
-        window.setTimeout(action(() => {
+        this.authenticated = false;
+
+        window.setTimeout(() => {
             this.authenticated = true;
-        }), 4000);
+            this.trigger('logged-in');
+        }, 4000);
     }
-
-    // @observable
-    // static isLoggedIn() {
-    //     // return this.authenticated;
-    // }
 
 }

@@ -1,5 +1,4 @@
 import React from 'react';
-import { observable, autorun } from 'mobx';
 
 import AuthService from './../../AuthService';
 
@@ -8,24 +7,35 @@ export default class Notification extends React.Component {
     constructor(props) {
         super(props);
 
-        // this.state = observable({
-        //     hello: false
-        // });
+        this.authService = new AuthService();
+        this.state = {
+            message: null
+        };
+    }
 
-        this.disposer = null;
-        this.auth = new AuthService();
+    displayMessage(message) {
+        this.setState({ message: message });
+        setTimeout(() => {
+            this.setState({ message: null });
+        }, 4000);
+    }
+
+    componentDidMount() {
+        this.authService.on('logged-in', () => {
+            this.displayMessage('hello world');
+        });
     }
 
     componentWillUnmount() {
-        this.disposer();
+        // this.authService.removeListener
     }
 
     render() {
-        this.disposer = autorun(() => {
-            console.log('logged in : ' + JSON.stringify(this.auth.authenticated));
-        });
+        if (!this.state.message) {
+            return null;
+        }
 
-        return null;
+        return <div className="notification">{this.state.message}</div>;
     }
 
 }
