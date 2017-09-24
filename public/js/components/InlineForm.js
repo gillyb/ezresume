@@ -85,11 +85,10 @@ export default class InlineForm extends React.Component {
                 switch (fieldInfo.type) {
                     case 'string':
                         fieldValues.push(
-                            <div className="form-group">
+                            <div className="form-group" key={fieldInfo.key}>
                                 <input
                                     type="text"
                                     className="form-control form-control-sm"
-                                    key={fieldInfo.key}
                                     name={fieldInfo.key}
                                     value={fieldInfo.value}
                                     placeholder={fieldInfo.name}
@@ -100,10 +99,9 @@ export default class InlineForm extends React.Component {
                         break;
                     case 'multiline':
                         fieldValues.push(
-                            <div className="form-group">
+                            <div className="form-group" key={fieldInfo.key}>
                                 <textarea
                                     className="form-control form-control-sm"
-                                    key={fieldInfo.key}
                                     name={fieldInfo.key}
                                     value={fieldInfo.value}
                                     placeholder={fieldInfo.name}

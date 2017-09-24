@@ -1,15 +1,18 @@
 import React from 'react';
 
-import AuthService from './../../AuthService';
+import ResumeService from './../../ResumeService';
 
 export default class Notification extends React.Component {
 
     constructor(props) {
         super(props);
 
-        this.authService = new AuthService();
         this.state = {
             message: null
+        };
+
+        this.subscriptions = {
+            'resume': 'saving resume'
         };
     }
 
@@ -21,12 +24,15 @@ export default class Notification extends React.Component {
     }
 
     componentDidMount() {
-        this.authService.on('logged-in', () => {
-            this.displayMessage('hello world');
+        Object.keys(this.subscriptions).forEach((event) => {
+            ResumeService.on(event, () => {
+                this.displayMessage(this.subscriptions[event]);
+            });
         });
     }
 
     componentWillUnmount() {
+        // TODO: unsubscribe from all events we subscribed to in `componentDidMount`
         // this.authService.removeListener
     }
 
@@ -35,7 +41,13 @@ export default class Notification extends React.Component {
             return null;
         }
 
-        return <div className="notification">{this.state.message}</div>;
+        return (
+            <div className="notification-wrapper">
+                <div className="notification">
+                    <div className="message">{this.state.message}</div>
+                </div>
+            </div>
+        );
     }
 
 }

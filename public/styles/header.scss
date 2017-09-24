@@ -6,4 +6,20 @@
     }
   }
 
+  .notification-wrapper {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    .notification {
+      border: solid 1px green;
+      background-color: darkseagreen;
+      border-radius: 4px;
+      display: inline-block;
+      max-width: 500px;
+      min-width: 400px;
+      color: #fff;
+      font-weight: 300;
+    }
+  }
+
 }

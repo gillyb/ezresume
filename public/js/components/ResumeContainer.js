@@ -6,11 +6,14 @@ import EducationSection from "./EducationSection";
 import ProjectsSection from "./ProjectsSection";
 import SkillsSection from "./SkillsSection";
 
+import ResumeService from './../ResumeService';
+
 export default class ResumeContainer extends React.Component {
 
     constructor(props) {
         super(props);
 
+        // this.resumeService = new ResumeService();
         const publicView = window.location.search.indexOf('public') !== -1;
 
         this.state = {
@@ -25,9 +28,11 @@ export default class ResumeContainer extends React.Component {
         if (this.state.publicView)
             return;
 
+        ResumeService.save();
+
         // TODO: check which section we got
         // TODO: save to db
-        window.alert('saved: ' + JSON.stringify(newFields));
+        // window.alert('saved: ' + JSON.stringify(newFields));
     }
 
     render() {

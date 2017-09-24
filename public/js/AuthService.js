@@ -1,16 +1,13 @@
 import EventEmitter from 'wolfy87-eventemitter';
 
-export default class AuthService extends EventEmitter {
+class AuthService extends EventEmitter {
+
+    authenticated = false;
 
     constructor() {
         super();
-
-        this.authenticated = false;
-
-        window.setTimeout(() => {
-            this.authenticated = true;
-            this.trigger('logged-in');
-        }, 4000);
     }
 
 }
+
+export default new AuthService();
