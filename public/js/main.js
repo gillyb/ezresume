@@ -15,13 +15,14 @@ ReactDOM.render((
     <BrowserRouter>
         <Route path="/">
             <App>
+
                 {/* Auth */}
                 <Route path="/login" component={LoginForm} />
                 <Route path="/register" component={RegisterForm} />
 
                 {/* Editor */}
                 <Route path="/resume" render={() => <ResumeContainer resumeObject={resume}/>} />
-                {/*<Route path="resume" component={ResumeContainer} />*/}
+
             </App>
         </Route>
     </BrowserRouter>
