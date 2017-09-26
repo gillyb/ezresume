@@ -47,6 +47,7 @@ app.use(session({
 
 require('./auth/anonymous')(app);
 require('./auth/facebook')(app);
+require('./auth/google')(app);
 require('./auth/logout')(app);
 require('./auth/session')(app);
 

@@ -36,13 +36,20 @@ export default class LoginForm extends React.Component {
                             {/*</div>*/}
                             {/*<hr />*/}
 
-                            <div className="form-group social-buttons">
-                                <a href="/login/facebook">
-                                    <button type="button" className="facebook btn btn-primary btn-block"><i className="fa fa-facebook"></i>facebook</button>
-                                </a>
-                                <button type="button" className="google btn btn-primary btn-block"><i className="fa fa-google"></i>Google</button>
-                                <button type="button" className="linkedin btn btn-primary btn-block"><i className="fa fa-linkedin"></i>LinkedIn</button>
-                                <button type="button" className="github last btn btn-primary btn-block"><i className="fa fa-github"></i>GitHub</button>
+                            <div className="social-buttons">
+                                <div className="form-group">
+                                    <a href="/login/facebook">
+                                        <button type="button" className="facebook btn btn-primary btn-block"><i className="fa fa-facebook"></i>facebook</button>
+                                    </a>
+                                </div><div className="form-group">
+                                    <a href="/login/google">
+                                        <button type="button" className="google btn btn-primary btn-block"><i className="fa fa-google"></i>Google</button>
+                                    </a>
+                                </div><div className="form-group">
+                                    <button type="button" className="linkedin btn btn-primary btn-block"><i className="fa fa-linkedin"></i>LinkedIn</button>
+                                </div><div className="form-group">
+                                    <button type="button" className="github last btn btn-primary btn-block"><i className="fa fa-github"></i>GitHub</button>
+                                </div>
                             </div>
                             <small className="text-muted">
                                 We promise to never send any annoying emails.

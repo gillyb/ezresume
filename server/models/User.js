@@ -8,6 +8,7 @@ var userSchema = mongoose.Schema({
 
     provider: String,
     facebookId: String,
+    googleId: String,
 
     created: Date,
     updated: Date
