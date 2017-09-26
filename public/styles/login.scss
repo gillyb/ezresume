@@ -1,0 +1,36 @@
+.social-buttons {
+
+  button {
+    margin-right: 1rem;
+    color: #fff;
+    i {
+      margin-right: 8px;
+    }
+  }
+
+  .facebook {
+    background-color: #3b5998;
+    &:hover {
+      background-color: #2d4373;
+    }
+  }
+  .linkedin {
+    background-color: #007bb6;
+    &:hover {
+      background-color: #005983;
+    }
+  }
+  .github {
+    background-color: #444;
+    &:hover {
+      background-color: #2b2b2b;
+    }
+  }
+  .google {
+    background-color: #dd4b39;
+    &:hover {
+      background-color: #c23321;
+    }
+  }
+
+}

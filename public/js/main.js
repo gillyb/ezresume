@@ -3,7 +3,9 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import 'bootstrap/scss/bootstrap.scss';
+import './../styles/font-awesome/scss/font-awesome.scss';
 import './../styles/main.scss';
+
 import App from "./components/App";
 import LoginForm from "./components/auth/LoginForm";
 import RegisterForm from "./components/auth/RegisterForm";

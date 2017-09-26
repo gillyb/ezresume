@@ -6,6 +6,10 @@ class AuthService extends EventEmitter {
 
     constructor() {
         super();
+
+        window.setTimeout(() => {
+            this.trigger('open-login');
+        }, 5000);
     }
 
 }
