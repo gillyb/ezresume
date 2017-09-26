@@ -128,6 +128,14 @@ export default class InlineForm extends React.Component {
                             />
                         );
                         break;
+                    case 'links':
+                        fieldValues.push(
+                            <LinksEditor
+                                key={fieldInfo.key}
+                                links={fieldInfo.values}
+                            />
+                        );
+                        break;
                 }
             });
         }
@@ -164,6 +172,15 @@ export default class InlineForm extends React.Component {
                                 <ul className="bullets" key={fieldInfo.key}>
                                     {fieldInfo.value.map((bullet, index) =>
                                         <li key={index}>{bullet}</li>
+                                    )}
+                                </ul>
+                            );
+                            break;
+                        case 'links':
+                            fieldValues.push(
+                                <ul className="links" key={fieldInfo.key}>
+                                    {fieldInfo.value.map((link, index) =>
+                                        <li key={index}>{link}</li>
                                     )}
                                 </ul>
                             );

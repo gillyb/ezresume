@@ -17,13 +17,14 @@ module.exports = {
 
             generalDetails: {
                 jobTitle: 'Senior Full Stack Engineer',
-                aboutYou: 'I am the best, no doubt! word!',
-                socialMedia: [
+                aboutYou: 'I am the best, no doubt! word!'
+            },
+            onlinePresence: {
+                links: [
                     'http://facebook.com/gilly-barr',
                     'https://github.com/gillyb'
                 ]
             },
-
             workExperience: [{
                 companyName: 'Logz.io',
                 companyWebsite: 'http://logz.io',

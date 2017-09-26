@@ -11,9 +11,10 @@ var resumeSchema = mongoose.Schema({
     generalDetails: {
         jobTitle: String,
         aboutYou: String,
-        socialMedia: {
-            links: [String]
-        },
+    },
+
+    onlinePresence: {
+        links: [String]
     },
 
     workExperience: [{

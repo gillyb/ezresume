@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import 'bootstrap/scss/bootstrap.scss';
 import './../styles/font-awesome/scss/font-awesome.scss';
+import './../styles/bootstrap-social/bootstrap-social.css';
 import './../styles/main.scss';
 
 import App from "./components/App";
