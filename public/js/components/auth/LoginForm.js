@@ -19,27 +19,34 @@ export default class LoginForm extends React.Component {
                     <div className="card">
                         <div className="card-body">
                             <h4 className="card-title justify-content-center">Login</h4>
-                            <p className="card-text">Login using a username and password.</p>
+                            <p className="card-text">Login with one of these social network providers.</p>
 
-                            <div className="form-group">
-                                {/*<label for="exampleInputEmail1">Email address</label>*/}
-                                <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" />
-                            </div>
-                            <div className="form-group">
-                                {/*<label for="exampleInputPassword1">Password</label>*/}
-                                <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Password" />
-                            </div>
+                            {/* TODO: maybe this will work in the future */}
+                            {/*<div className="form-group">*/}
+                                {/*/!*<label for="exampleInputEmail1">Email address</label>*!/*/}
+                                {/*<input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" />*/}
+                            {/*</div>*/}
+                            {/*<div className="form-group">*/}
+                                {/*/!*<label for="exampleInputPassword1">Password</label>*!/*/}
+                                {/*<input type="password" className="form-control" id="exampleInputPassword1" placeholder="Password" />*/}
+                            {/*</div>*/}
 
-                            <div className="form-group">
-                                <a href="#" className="btn btn-primary">Login</a>
-                            </div>
-                            <hr />
+                            {/*<div className="form-group">*/}
+                                {/*<a href="#" className="btn btn-primary">Login</a>*/}
+                            {/*</div>*/}
+                            {/*<hr />*/}
+
                             <div className="form-group social-buttons">
-                                <button type="button" className="facebook btn btn-primary btn-sm"><i className="fa fa-facebook"></i>facebook</button>
-                                <button type="button" className="google btn btn-primary btn-sm"><i className="fa fa-google"></i>Google</button>
-                                <button type="button" className="linkedin btn btn-primary btn-sm"><i className="fa fa-linkedin"></i>LinkedIn</button>
-                                <button type="button" className="github btn btn-primary btn-sm"><i className="fa fa-github"></i>GitHub</button>
+                                <a href="/login/facebook">
+                                    <button type="button" className="facebook btn btn-primary btn-block"><i className="fa fa-facebook"></i>facebook</button>
+                                </a>
+                                <button type="button" className="google btn btn-primary btn-block"><i className="fa fa-google"></i>Google</button>
+                                <button type="button" className="linkedin btn btn-primary btn-block"><i className="fa fa-linkedin"></i>LinkedIn</button>
+                                <button type="button" className="github last btn btn-primary btn-block"><i className="fa fa-github"></i>GitHub</button>
                             </div>
+                            <small className="text-muted">
+                                We promise to never send any annoying emails.
+                            </small>
                         </div>
                     </div>
                 </div>
