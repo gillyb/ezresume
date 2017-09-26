@@ -21,7 +21,7 @@ export default class OnlinePresenceSection extends React.Component {
         if (this.props.publicView)
             return;
 
-        this.props.onUpdate(updatedFields);
+        this.props.onUpdate({ onlinePresence: updatedFields });
     }
 
     render() {

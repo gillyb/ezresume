@@ -26,7 +26,7 @@ export default class SkillsSection extends React.Component {
         if (this.props.publicView)
             return;
 
-        this.props.onUpdate(updatedFields);
+        this.props.onUpdate({ skills: updatedFields });
     }
 
     render() {

@@ -6,10 +6,6 @@ export default class ProjectsSection extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = {
-            projects: this.props.projects || []
-        };
-
         this.template = [
             { name: 'Project name', key: 'projectName', type: 'string' },
             { name: 'Role', key: 'role', type: 'string' },
@@ -24,17 +20,17 @@ export default class ProjectsSection extends React.Component {
     }
 
     addProject() {
-        let updatedProjects = this.state.projects.slice();
+        let updatedProjects = this.props.projects.slice();
         updatedProjects.push(this.template.slice());       // TODO: maybe add some random values here for the user to start with
 
-        this.setState({ projects: updatedProjects });
+        this.props.onUpdate({ projects: updatedProjects });
     }
 
     onSave(updatedFields) {
         if (this.props.publicView)
             return;
 
-        this.props.onUpdate(updatedFields);
+        this.props.onUpdate({ projects: updatedFields });
     }
 
     render() {
@@ -54,7 +50,7 @@ export default class ProjectsSection extends React.Component {
             </div>
         ) : <div className="hidden empty" />;
 
-        if (!this.state.projects || !this.state.projects.length) {
+        if (!this.props.projects || !this.props.projects.length) {
             return (
                 <div className="resume-section projects">
                     {addProjectButton}
@@ -62,7 +58,7 @@ export default class ProjectsSection extends React.Component {
             );
         }
 
-        const projects = this.state.projects.map((section, index) => {
+        const projects = this.props.projects.map((section, index) => {
             const formFields = this.template.map((templateField) => {
                 let field = Object.assign({}, templateField);
                 if (section.hasOwnProperty(field.key))

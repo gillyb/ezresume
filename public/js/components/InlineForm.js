@@ -28,7 +28,7 @@ export default class InlineForm extends React.Component {
         if (this.props.publicView)
             return;
 
-        this.props.onSave(this.state.fields);
+        this.props.onSave(this.state.fields, this.props.arrayIndex);
         this.setState({ editing: false });
     }
 

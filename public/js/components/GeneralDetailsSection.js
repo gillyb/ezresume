@@ -1,4 +1,6 @@
 import React from 'react';
+import _ from 'lodash';
+
 import InlineForm from "./InlineForm";
 
 export default class GeneralDetailsSection extends React.Component {
@@ -22,7 +24,12 @@ export default class GeneralDetailsSection extends React.Component {
         if (this.props.publicView)
             return;
 
-        this.props.onUpdate(updatedFields);
+        const newGeneralDetails = _.map(this.template, (field) => {
+            let updatedValue = _.find(updatedFields, (updatedField) => updatedField.key === field.key).value;
+            return { [field.key]: updatedValue };
+        });
+
+        this.props.onUpdate({ generalDetails: newGeneralDetails });
     }
 
     render() {

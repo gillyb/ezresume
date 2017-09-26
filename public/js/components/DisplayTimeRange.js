@@ -33,7 +33,7 @@ export default class DisplayTimeRange extends React.Component {
             let startMonthElement = (startMonth ? <span className="month">{this.months[startMonth]}</span> : '');
             let startYearElement = (startYear ? <span className="year">{startYear}</span> : '');
 
-            startDate = <span className="startdate">{startMonthElement}{startYearElement}</span>;
+            startDate = <span className="startdate">{startMonthElement} {startYearElement}</span>;
         }
 
         // end date
@@ -49,7 +49,7 @@ export default class DisplayTimeRange extends React.Component {
                 let endMonthElement = (endMonth ? <span className="month">{this.months[endMonth]}</span> : '');
                 let endYearElement = (endYear ? <span className="year">{endYear}</span> : '');
 
-                endDate = <span className="enddate">{endMonthElement}{endYearElement}</span>;
+                endDate = <span className="enddate">{endMonthElement} {endYearElement}</span>;
             }
         }
 

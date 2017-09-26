@@ -16,6 +16,7 @@ export default class ResumeContainer extends React.Component {
         // this.resumeService = new ResumeService();
         const publicView = window.location.search.indexOf('public') !== -1;
 
+        // TODO: check if we should separate the resumeObject to parts for a performance improvement
         this.state = {
             resumeObject: this.props.resumeObject,
             publicView: publicView
@@ -28,7 +29,14 @@ export default class ResumeContainer extends React.Component {
         if (this.state.publicView)
             return;
 
+        // if user is logged in save to db
+
+        // if anonymous user, save locally and show message
+
         ResumeService.save();
+
+        const updatedResumeObject = _.assign(this.state.resumeObject, newFields)
+        this.setState({ resumeObject: updatedResumeObject });
 
         // TODO: check which section we got
         // TODO: save to db
@@ -48,17 +56,17 @@ export default class ResumeContainer extends React.Component {
                     onUpdate={this.saveResume}
                 />
                 <WorkExperienceSection
-                    workExperience={this.state.resumeObject.workExperience}
+                    workExperience={this.state.resumeObject.workExperience || []}
                     publicView={this.state.publicView}
                     onUpdate={this.saveResume}
                 />
                 <EducationSection
-                    education={this.state.resumeObject.education}
+                    education={this.state.resumeObject.education || []}
                     publicView={this.state.publicView}
                     onUpdate={this.saveResume}
                 />
                 <ProjectsSection
-                    projects={this.state.resumeObject.projects}
+                    projects={this.state.resumeObject.projects || []}
                     publicView={this.state.publicView}
                     onUpdate={this.saveResume}
                 />

@@ -20,8 +20,8 @@ export default class BulletsEditor extends React.Component {
     render() {
 
         const bulletInputs = this.state.bullets.map((bullet, index) =>
-            <div className="form-group">
-                <input type="text" className="form-control form-control-sm" key={index} value={bullet} />
+            <div className="form-group" key={index}>
+                <input type="text" className="form-control form-control-sm" value={bullet} />
             </div>
         );
 

@@ -6,10 +6,6 @@ export default class EducationSection extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = {
-            education: this.props.education || []
-        };
-
         this.template = [
             { name: 'School', key: 'school', type: 'string' },
             { name: 'Degree', key: 'degree', type: 'string' },
@@ -24,17 +20,17 @@ export default class EducationSection extends React.Component {
     }
 
     addEducation() {
-        let updatedEducation = this.state.education.slice();
+        let updatedEducation = this.props.education.slice();
         updatedEducation.push(this.template.slice());       // TODO: maybe add some random values here for the user to start with
 
-        this.setState({ education: updatedEducation });
+        this.props.onUpdate({ education: updatedEducation });
     }
 
     onSave(updatedFields) {
         if (this.props.publicView)
             return;
 
-        this.props.onUpdate(updatedFields);
+        this.props.onUpdate({ education: updatedFields });
     }
 
     render() {
@@ -54,7 +50,7 @@ export default class EducationSection extends React.Component {
             </div>
         ) : <div className="hidden empty" />;
 
-        if (!this.state.education || !this.state.education.length) {
+        if (!this.props.education || !this.props.education.length) {
             return (
                 <div className="resume-section education">
                     {addEducationButton}
@@ -62,7 +58,7 @@ export default class EducationSection extends React.Component {
             );
         }
 
-        const educations = this.state.education.map((section, index) => {
+        const educations = this.props.education.map((section, index) => {
             const formFields = this.template.map((templateField) => {
                 let field = Object.assign({}, templateField);
                 if (section.hasOwnProperty(field.key))

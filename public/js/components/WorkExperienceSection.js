@@ -1,14 +1,12 @@
 import React from 'react';
+import _ from 'lodash';
+
 import InlineForm from "./InlineForm";
 
 export default class WorkExperienceSection extends React.Component {
 
     constructor(props) {
         super(props);
-
-        this.state = {
-            workExperience: this.props.workExperience || []
-        };
 
         this.template = [
             { name: 'Company name', key: 'companyName', type: 'string' },
@@ -24,17 +22,26 @@ export default class WorkExperienceSection extends React.Component {
     }
 
     addWorkExperience() {
-        let updatedWorkExperience = this.state.workExperience.slice();
+        let updatedWorkExperience = this.props.workExperience.slice();
         updatedWorkExperience.push(this.template.slice());       // TODO: maybe add some random values here for the user to start with
 
-        this.setState({ workExperience: updatedWorkExperience });
+        this.props.onUpdate({ workExperience: updatedWorkExperience });
     }
 
-    onSave(updatedFields) {
+    onSave(updatedFields, arrayIndex) {
         if (this.props.publicView)
             return;
 
-        this.props.onUpdate(updatedFields);
+        let newWorkExperience = {};
+        _.forEach(updatedFields, (field) => {
+            if (field.hasOwnProperty('value'))
+                newWorkExperience[field.key] = field.value;
+        });
+
+        let updatedWorkExperiences = this.props.workExperience.slice();
+        updatedWorkExperiences[arrayIndex] = newWorkExperience;
+
+        this.props.onUpdate({ workExperience: updatedWorkExperiences });
     }
 
     render() {
@@ -55,11 +62,11 @@ export default class WorkExperienceSection extends React.Component {
             </div>
         ) : <div className="hidden empty" />;
 
-        if (!this.state.workExperience || !this.state.workExperience.length) {
+        if (!this.props.workExperience || !this.props.workExperience.length) {
             return addWorkExperienceButton;
         }
 
-        const workExperiences = this.state.workExperience.map((section, index) => {
+        const workExperiences = this.props.workExperience.map((section, index) => {
             const formFields = this.template.map((templateField) => {
                 let field = Object.assign({}, templateField);
                 if (section.hasOwnProperty(field.key))
@@ -70,6 +77,7 @@ export default class WorkExperienceSection extends React.Component {
             return <InlineForm
                 formFields={formFields}
                 key={index}
+                arrayIndex={index}
                 onSave={this.onSave}
                 publicView={this.props.publicView}
             />
