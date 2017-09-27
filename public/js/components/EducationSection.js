@@ -1,4 +1,6 @@
 import React from 'react';
+import _ from 'lodash';
+
 import InlineForm from "./InlineForm";
 
 export default class EducationSection extends React.Component {
@@ -21,16 +23,25 @@ export default class EducationSection extends React.Component {
 
     addEducation() {
         let updatedEducation = this.props.education.slice();
-        updatedEducation.push(this.template.slice());       // TODO: maybe add some random values here for the user to start with
+        updatedEducation.push({ school: '' });       // TODO: maybe add some random values here for the user to start with
 
         this.props.onUpdate({ education: updatedEducation });
     }
 
-    onSave(updatedFields) {
+    onSave(updatedFields, arrayIndex) {
         if (this.props.publicView)
             return;
 
-        this.props.onUpdate({ education: updatedFields });
+        let newEducation = {};
+        _.forEach(updatedFields, (field) => {
+            if (field.hasOwnProperty('value'))
+                newEducation[field.key] = field.value;
+        });
+
+        let updatedEducation = this.props.education.slice();
+        updatedEducation[arrayIndex] = newEducation;
+
+        this.props.onUpdate({ education: updatedEducation });
     }
 
     render() {
@@ -69,6 +80,7 @@ export default class EducationSection extends React.Component {
             return <InlineForm
                 formFields={formFields}
                 key={index}
+                arrayIndex={index}
                 onSave={this.onSave}
                 publicView={this.props.publicView}
             />

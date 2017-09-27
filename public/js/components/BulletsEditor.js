@@ -5,23 +5,21 @@ export default class BulletsEditor extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = {
-            bullets: this.props.bullets || []
-        };
-
         this.handleChange = this.handleChange.bind(this);
     }
 
     handleChange(event) {
-        // TODO: finish implementation
-        // this.setState({  })
+        let updatedBullets = this.props.bullets.slice();
+        updatedBullets[event.target.name] = event.target.value;
+
+        this.props.handleChange(updatedBullets);
     }
 
     render() {
 
-        const bulletInputs = this.state.bullets.map((bullet, index) =>
+        const bulletInputs = this.props.bullets.map((bullet, index) =>
             <div className="form-group" key={index}>
-                <input type="text" className="form-control form-control-sm" value={bullet} />
+                <input type="text" className="form-control form-control-sm" name={index} value={bullet} onChange={this.handleChange} />
             </div>
         );
 

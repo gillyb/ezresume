@@ -6,10 +6,6 @@ export default class SkillsSection extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = {
-            skills: this.props.skills || []
-        };
-
         this.template = [
             { name: 'Skills', key: 'skills', type: 'bullets' }
         ];
@@ -19,14 +15,14 @@ export default class SkillsSection extends React.Component {
     }
 
     addSkills() {
-        this.setState({ skills: this.template.slice() });
+        this.props.onUpdate({ skills: ['List', 'Your', 'Skills'] });
     }
 
     onSave(updatedFields) {
         if (this.props.publicView)
             return;
 
-        this.props.onUpdate({ skills: updatedFields });
+        this.props.onUpdate({ skills: updatedFields[0].value });
     }
 
     render() {
@@ -40,12 +36,12 @@ export default class SkillsSection extends React.Component {
             </div>
         ) : <div className="hidden empty" />;
 
-        if (!this.state.skills || !this.state.skills.length) {
+        if (!this.props.skills || !this.props.skills.length) {
             return addSkillsButton;
         }
 
         let formFields = this.template.slice();
-        formFields[0].value = this.state.skills;
+        formFields[0].value = this.props.skills;
 
         return (
             <div className="resume-section skills">

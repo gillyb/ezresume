@@ -33,12 +33,12 @@ export default class ResumeContainer extends React.Component {
 
         // if anonymous user, save locally and show message
 
+        window.alert(JSON.stringify(newFields));
         ResumeService.save();
 
-        const updatedResumeObject = _.assign(this.state.resumeObject, newFields)
+        const updatedResumeObject = _.assign(this.state.resumeObject, newFields);
         this.setState({ resumeObject: updatedResumeObject });
 
-        // TODO: check which section we got
         // TODO: save to db
         // window.alert('saved: ' + JSON.stringify(newFields));
     }

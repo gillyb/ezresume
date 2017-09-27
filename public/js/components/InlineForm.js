@@ -21,6 +21,7 @@ export default class InlineForm extends React.Component {
         this.handleCancel = this.handleCancel.bind(this);
         this.startEditing = this.startEditing.bind(this);
         this.handleChange = this.handleChange.bind(this);
+        this.handleBulletsChange = this.handleBulletsChange.bind(this);
         this.updateTimeRange = this.updateTimeRange.bind(this);
     }
 
@@ -47,7 +48,7 @@ export default class InlineForm extends React.Component {
             this.setState({ editing: true });
     }
 
-    // TODO: use a better utility for this
+    // TODO: use a better utility for this (like lodash)
     cloneArray(arr) {
         return JSON.parse(JSON.stringify(arr));
     }
@@ -58,6 +59,12 @@ export default class InlineForm extends React.Component {
             if (field.key === event.target.name)
                 field.value = event.target.value;
         });
+        this.setState({ fields: updatedFields });
+    }
+
+    handleBulletsChange(updatedValue) {
+        let updatedFields = this.cloneArray(this.state.fields);
+        _.find(updatedFields, (field) => field.type === 'bullets').value = updatedValue;
         this.setState({ fields: updatedFields });
     }
 
@@ -125,6 +132,7 @@ export default class InlineForm extends React.Component {
                             <BulletsEditor
                                 key={fieldInfo.key}
                                 bullets={fieldInfo.value}
+                                handleChange={this.handleBulletsChange}
                             />
                         );
                         break;

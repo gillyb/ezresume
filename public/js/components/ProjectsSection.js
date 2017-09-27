@@ -1,4 +1,6 @@
 import React from 'react';
+import _ from 'lodash';
+
 import InlineForm from "./InlineForm";
 
 export default class ProjectsSection extends React.Component {
@@ -21,16 +23,25 @@ export default class ProjectsSection extends React.Component {
 
     addProject() {
         let updatedProjects = this.props.projects.slice();
-        updatedProjects.push(this.template.slice());       // TODO: maybe add some random values here for the user to start with
+        updatedProjects.push({ projectName: '' });       // TODO: maybe add some random values here for the user to start with
 
         this.props.onUpdate({ projects: updatedProjects });
     }
 
-    onSave(updatedFields) {
+    onSave(updatedFields, arrayIndex) {
         if (this.props.publicView)
             return;
 
-        this.props.onUpdate({ projects: updatedFields });
+        let newProject = {};
+        _.forEach(updatedFields, (field) => {
+            if (field.hasOwnProperty('value'))
+                newProject[field.key] = field.value;
+        });
+
+        let updatedProjects = this.props.projects.slice();
+        updatedProjects[arrayIndex] = newProject;
+
+        this.props.onUpdate({ projects: updatedProjects });
     }
 
     render() {
@@ -69,6 +80,7 @@ export default class ProjectsSection extends React.Component {
             return <InlineForm
                 formFields={formFields}
                 key={index}
+                arrayIndex={index}
                 onSave={this.onSave}
                 publicView={this.props.publicView}
             />

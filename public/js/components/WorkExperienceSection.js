@@ -23,7 +23,7 @@ export default class WorkExperienceSection extends React.Component {
 
     addWorkExperience() {
         let updatedWorkExperience = this.props.workExperience.slice();
-        updatedWorkExperience.push(this.template.slice());       // TODO: maybe add some random values here for the user to start with
+        updatedWorkExperience.push({ companyName: '' });       // TODO: maybe add some random values here for the user to start with
 
         this.props.onUpdate({ workExperience: updatedWorkExperience });
     }

@@ -24,9 +24,10 @@ export default class GeneralDetailsSection extends React.Component {
         if (this.props.publicView)
             return;
 
-        const newGeneralDetails = _.map(this.template, (field) => {
+        const newGeneralDetails = {};
+        _.forEach(this.template, (field) => {
             let updatedValue = _.find(updatedFields, (updatedField) => updatedField.key === field.key).value;
-            return { [field.key]: updatedValue };
+            newGeneralDetails[field.key] = updatedValue;
         });
 
         this.props.onUpdate({ generalDetails: newGeneralDetails });
