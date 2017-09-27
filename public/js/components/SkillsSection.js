@@ -28,15 +28,22 @@ export default class SkillsSection extends React.Component {
     render() {
         const addSkillsButton = !this.props.publicView ? (
             <div className="add-section">
+                {/* TODO: extract this button to something common */}
                 <button
                     type="button"
-                    className="btn btn-primary"
+                    className="btn btn-sm btn-outline-secondary"
                     onClick={this.addSkills}
-                >Add Skills</button>
+                >
+                    Add Skills
+                    <svg fill="#868e96" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
+                    </svg>
+                </button>
             </div>
         ) : <div className="hidden empty" />;
 
-        if (!this.props.skills || !this.props.skills.length) {
+        if (!this.props.skills || !this.props.skills.length || !this.props.skills[0]) {
             return addSkillsButton;
         }
 
