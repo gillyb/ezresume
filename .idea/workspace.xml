@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3dda91a0-20aa-42df-a8da-7d9aaa1787cd" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/components/BulletsEditor.js" afterPath="$PROJECT_DIR$/public/js/components/BulletsEditor.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/components/SkillsSection.js" afterPath="$PROJECT_DIR$/public/js/components/SkillsSection.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/ResumeService.js" afterPath="$PROJECT_DIR$/public/js/ResumeService.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/components/ResumeContainer.js" afterPath="$PROJECT_DIR$/public/js/components/ResumeContainer.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -64,12 +64,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ResumeContainer.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ResumeContainer.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/js/components/ResumeContainer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="518">
-              <caret line="73" column="20" lean-forward="false" selection-start-line="73" selection-start-column="20" selection-end-line="73" selection-end-column="20" />
-              <folding />
+            <state relative-caret-position="612">
+              <caret line="43" column="4" lean-forward="true" selection-start-line="43" selection-start-column="4" selection-end-line="43" selection-end-column="4" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -78,7 +80,7 @@
         <entry file="file://$PROJECT_DIR$/public/js/ResumeService.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="68">
-              <caret line="4" column="4" lean-forward="false" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
+              <caret line="4" column="9" lean-forward="false" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -96,11 +98,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BulletsEditor.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="BulletsEditor.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/js/components/BulletsEditor.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="765">
-              <caret line="45" column="51" lean-forward="true" selection-start-line="45" selection-start-column="51" selection-end-line="45" selection-end-column="51" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -207,7 +209,6 @@
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/package-lock.json" />
         <option value="$PROJECT_DIR$/public/js/components/header/Notifier.js" />
-        <option value="$PROJECT_DIR$/public/js/ResumeService.js" />
         <option value="$PROJECT_DIR$/public/js/components/header/Notification.js" />
         <option value="$PROJECT_DIR$/public/views/main.pug" />
         <option value="$PROJECT_DIR$/public/js/components/auth/RegisterForm.js" />
@@ -231,12 +232,13 @@
         <option value="$PROJECT_DIR$/public/js/components/OnlinePresenceSection.js" />
         <option value="$PROJECT_DIR$/public/js/components/GeneralDetailsSection.js" />
         <option value="$PROJECT_DIR$/public/js/components/WorkExperienceSection.js" />
-        <option value="$PROJECT_DIR$/public/js/components/ResumeContainer.js" />
         <option value="$PROJECT_DIR$/public/js/components/EducationSection.js" />
         <option value="$PROJECT_DIR$/public/js/components/ProjectsSection.js" />
         <option value="$PROJECT_DIR$/public/js/components/InlineForm.js" />
         <option value="$PROJECT_DIR$/public/js/components/SkillsSection.js" />
         <option value="$PROJECT_DIR$/public/js/components/BulletsEditor.js" />
+        <option value="$PROJECT_DIR$/public/js/ResumeService.js" />
+        <option value="$PROJECT_DIR$/public/js/components/ResumeContainer.js" />
       </list>
     </option>
   </component>
@@ -380,28 +382,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ezresume" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ezresume" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="components" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -579,12 +559,12 @@
       <option name="presentableId" value="Default" />
       <updated>1505210850512</updated>
       <workItem from="1505210852125" duration="33775000" />
-      <workItem from="1505673027471" duration="116081000" />
+      <workItem from="1505673027471" duration="119660000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="149856000" />
+    <option name="totallyTimeSpent" value="153435000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="873" extended-state="6" />
@@ -979,14 +959,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/ResumeService.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="4" lean-forward="false" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/js/components/GeneralDetailsSection.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="527">
@@ -1035,14 +1007,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/components/ResumeContainer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="518">
-          <caret line="73" column="20" lean-forward="false" selection-start-line="73" selection-start-column="20" selection-end-line="73" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/js/components/SkillsSection.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="722">
@@ -1063,8 +1027,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/js/components/BulletsEditor.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="45" column="51" lean-forward="true" selection-start-line="45" selection-start-column="51" selection-end-line="45" selection-end-column="51" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/ResumeService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="9" lean-forward="false" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/components/ResumeContainer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="43" column="4" lean-forward="true" selection-start-line="43" selection-start-column="4" selection-end-line="43" selection-end-column="4" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>

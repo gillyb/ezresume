@@ -13,7 +13,6 @@ export default class ResumeContainer extends React.Component {
     constructor(props) {
         super(props);
 
-        // this.resumeService = new ResumeService();
         const publicView = window.location.search.indexOf('public') !== -1;
 
         // TODO: check if we should separate the resumeObject to parts for a performance improvement
@@ -34,9 +33,10 @@ export default class ResumeContainer extends React.Component {
         // if anonymous user, save locally and show message
 
         window.alert(JSON.stringify(newFields));
-        ResumeService.save();
 
         const updatedResumeObject = _.assign(this.state.resumeObject, newFields);
+
+        ResumeService.save(updatedResumeObject);
         this.setState({ resumeObject: updatedResumeObject });
 
         // TODO: save to db
