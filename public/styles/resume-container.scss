@@ -175,10 +175,8 @@
         margin-bottom: 0.6rem;
       }
 
-      .click-to-edit {
+      .form-action {
         position: absolute;
-        top: -1px;
-        left: -103px;
         background-color: #aaa;
         color: #fff;
         display: none;
@@ -189,6 +187,17 @@
         letter-spacing: 1.2px;
         padding: 0 10px;
         opacity: 0.6;
+        cursor: pointer;
+
+        &.edit {
+          top: -1px;
+          left: -103px;
+        }
+        &.delete {
+          top: 23px;
+          left: -32px;
+          background-color: #FF4141;
+        }
       }
 
       .actions {
@@ -203,8 +212,10 @@
         padding: $edit-area-hover-margin;
         margin: (-$edit-area-hover-margin) (-$edit-area-hover-margin) (-$edit-area-hover-margin) (-$edit-area-hover-margin);
 
-        .click-to-edit {
-          display: inline-block;
+        .form-action {
+          &.edit, &.delete {
+            display: inline-block;
+          }
         }
 
         .timerange {

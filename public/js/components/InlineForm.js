@@ -18,6 +18,7 @@ export default class InlineForm extends React.Component {
         };
 
         this.handleUpdate = this.handleUpdate.bind(this);
+        this.handleDelete = this.handleDelete.bind(this);
         this.handleCancel = this.handleCancel.bind(this);
         this.startEditing = this.startEditing.bind(this);
         this.handleChange = this.handleChange.bind(this);
@@ -31,6 +32,13 @@ export default class InlineForm extends React.Component {
 
         this.props.onSave(this.state.fields, this.props.arrayIndex);
         this.setState({ editing: false });
+    }
+
+    handleDelete() {
+        if (this.props.publicView)
+            return;
+
+        this.props.onDelete(this.props.arrayIndex);
     }
 
     handleCancel() {
@@ -208,10 +216,11 @@ export default class InlineForm extends React.Component {
                     <div className="actions">
                         <button type="button" className="btn btn-primary btn-sm" onClick={this.handleUpdate}>Save</button>
                         <button type="button" className="btn btn-secondary btn-sm" onClick={this.handleCancel}>Cancel</button>
+                        <button type="button" className="btn btn-danger btn-sm float-right" onClick={this.handleDelete}>Delete Section</button>
                     </div>
                 }
 
-                <span className="click-to-edit">Click to edit</span>
+                <span className="form-action edit">Click to edit</span>
             </div>
         );
     }

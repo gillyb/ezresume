@@ -19,6 +19,7 @@ export default class EducationSection extends React.Component {
 
         this.addEducation = this.addEducation.bind(this);
         this.onSave = this.onSave.bind(this);
+        this.onDelete = this.onDelete.bind(this);
     }
 
     addEducation() {
@@ -42,6 +43,13 @@ export default class EducationSection extends React.Component {
         updatedEducation[arrayIndex] = newEducation;
 
         this.props.onUpdate({ education: updatedEducation });
+    }
+
+    onDelete(arrayIndex) {
+        if (this.props.publicView)
+            return;
+
+        this.props.onDelete('education', arrayIndex);
     }
 
     render() {
@@ -82,6 +90,7 @@ export default class EducationSection extends React.Component {
                 key={index}
                 arrayIndex={index}
                 onSave={this.onSave}
+                onDelete={this.onDelete}
                 publicView={this.props.publicView}
             />
         });

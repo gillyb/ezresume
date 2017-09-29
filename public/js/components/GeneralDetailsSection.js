@@ -18,6 +18,7 @@ export default class GeneralDetailsSection extends React.Component {
         ];
 
         this.onSave = this.onSave.bind(this);
+        this.onDelete = this.onDelete.bind(this);
     }
 
     onSave(updatedFields) {
@@ -33,6 +34,13 @@ export default class GeneralDetailsSection extends React.Component {
         this.props.onUpdate({ generalDetails: newGeneralDetails });
     }
 
+    onDelete() {
+        if (this.props.publicView)
+            return;
+
+        this.props.onDelete('generalDetails');
+    }
+
     render() {
 
         const displayFields = this.template.map((field) => {
@@ -46,6 +54,7 @@ export default class GeneralDetailsSection extends React.Component {
                 <InlineForm
                     formFields={displayFields}
                     onSave={this.onSave}
+                    onDelete={this.onDelete}
                     publicView={this.props.publicView}
                 />
             </div>

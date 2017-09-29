@@ -19,6 +19,7 @@ export default class ProjectsSection extends React.Component {
 
         this.addProject = this.addProject.bind(this);
         this.onSave = this.onSave.bind(this);
+        this.onDelete = this.onDelete.bind(this);
     }
 
     addProject() {
@@ -42,6 +43,13 @@ export default class ProjectsSection extends React.Component {
         updatedProjects[arrayIndex] = newProject;
 
         this.props.onUpdate({ projects: updatedProjects });
+    }
+
+    onDelete(arrayIndex) {
+        if (this.props.publicView)
+            return;
+
+        this.props.onDelete('projects', arrayIndex);
     }
 
     render() {
@@ -82,6 +90,7 @@ export default class ProjectsSection extends React.Component {
                 key={index}
                 arrayIndex={index}
                 onSave={this.onSave}
+                onDelete={this.onDelete}
                 publicView={this.props.publicView}
             />
         });

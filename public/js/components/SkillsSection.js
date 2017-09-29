@@ -12,6 +12,7 @@ export default class SkillsSection extends React.Component {
 
         this.addSkills = this.addSkills.bind(this);
         this.onSave = this.onSave.bind(this);
+        this.onDelete = this.onDelete.bind(this);
     }
 
     addSkills() {
@@ -23,6 +24,13 @@ export default class SkillsSection extends React.Component {
             return;
 
         this.props.onUpdate({ skills: updatedFields[0].value });
+    }
+
+    onDelete() {
+        if (this.props.publicView)
+            return;
+
+        this.props.onDelete('skills');
     }
 
     render() {
@@ -56,6 +64,7 @@ export default class SkillsSection extends React.Component {
                 <InlineForm
                     formFields={formFields}
                     onSave={this.onSave}
+                    onDelete={this.onDelete}
                     publicView={this.props.publicView}
                 />
             </div>

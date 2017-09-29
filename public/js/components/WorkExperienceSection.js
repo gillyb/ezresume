@@ -19,6 +19,7 @@ export default class WorkExperienceSection extends React.Component {
 
         this.addWorkExperience = this.addWorkExperience.bind(this);
         this.onSave = this.onSave.bind(this);
+        this.onDelete = this.onDelete.bind(this);
     }
 
     addWorkExperience() {
@@ -42,6 +43,13 @@ export default class WorkExperienceSection extends React.Component {
         updatedWorkExperiences[arrayIndex] = newWorkExperience;
 
         this.props.onUpdate({ workExperience: updatedWorkExperiences });
+    }
+
+    onDelete(arrayIndex) {
+        if (this.props.publicView)
+            return;
+
+        this.props.onDelete('workExperience', arrayIndex);
     }
 
     render() {
@@ -79,6 +87,7 @@ export default class WorkExperienceSection extends React.Component {
                 key={index}
                 arrayIndex={index}
                 onSave={this.onSave}
+                onDelete={this.onDelete}
                 publicView={this.props.publicView}
             />
         });

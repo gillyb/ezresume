@@ -21,10 +21,16 @@ export default class ResumeContainer extends React.Component {
             publicView: publicView
         };
 
-        this.saveResume = this.saveResume.bind(this);
+        this.saveSection = this.saveSection.bind(this);
+        this.deleteSection = this.deleteSection.bind(this);
     }
 
-    saveResume(newFields) {
+    saveResume(resumeObject) {
+        ResumeService.save(resumeObject);
+        this.setState({ resumeObject: resumeObject });
+    }
+
+    saveSection(newFields) {
         if (this.state.publicView)
             return;
 
@@ -36,11 +42,30 @@ export default class ResumeContainer extends React.Component {
 
         const updatedResumeObject = _.assign(this.state.resumeObject, newFields);
 
-        ResumeService.save(updatedResumeObject);
-        this.setState({ resumeObject: updatedResumeObject });
+        this.saveResume(updatedResumeObject);
 
         // TODO: save to db
-        // window.alert('saved: ' + JSON.stringify(newFields));
+    }
+
+    deleteSection(sectionName, arrayIndex) {
+        if (this.state.publicView)
+            return;
+
+        if (!window.confirm('Are you sure you want to delete this section?'))
+            return;
+
+        if (arrayIndex === undefined) {
+            let updatedResumeObject = _.cloneDeep(this.state.resumeObject);
+            delete updatedResumeObject[sectionName];
+
+            this.saveResume(updatedResumeObject);
+            return;
+        }
+
+        let updatedResumeObject = _.cloneDeep(this.state.resumeObject);
+        updatedResumeObject[sectionName].splice(arrayIndex, 1);
+
+        this.saveResume(updatedResumeObject);
     }
 
     render() {
@@ -53,27 +78,32 @@ export default class ResumeContainer extends React.Component {
                 <GeneralDetailsSection
                     formFields={this.state.resumeObject.generalDetails}
                     publicView={this.state.publicView}
-                    onUpdate={this.saveResume}
+                    onUpdate={this.saveSection}
+                    onDelete={this.deleteSection}
                 />
                 <WorkExperienceSection
                     workExperience={this.state.resumeObject.workExperience || []}
                     publicView={this.state.publicView}
-                    onUpdate={this.saveResume}
+                    onUpdate={this.saveSection}
+                    onDelete={this.deleteSection}
                 />
                 <EducationSection
                     education={this.state.resumeObject.education || []}
                     publicView={this.state.publicView}
-                    onUpdate={this.saveResume}
+                    onUpdate={this.saveSection}
+                    onDelete={this.deleteSection}
                 />
                 <ProjectsSection
                     projects={this.state.resumeObject.projects || []}
                     publicView={this.state.publicView}
-                    onUpdate={this.saveResume}
+                    onUpdate={this.saveSection}
+                    onDelete={this.deleteSection}
                 />
                 <SkillsSection
                     skills={this.state.resumeObject.skills}
                     publicView={this.state.publicView}
-                    onUpdate={this.saveResume}
+                    onUpdate={this.saveSection}
+                    onDelete={this.deleteSection}
                 />
             </div>
         );
