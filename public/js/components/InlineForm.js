@@ -131,7 +131,7 @@ export default class InlineForm extends React.Component {
                         fieldValues.push(
                             <BulletsEditor
                                 key={fieldInfo.key}
-                                bullets={fieldInfo.value}
+                                bullets={fieldInfo.value || []}
                                 handleChange={this.handleBulletsChange}
                             />
                         );

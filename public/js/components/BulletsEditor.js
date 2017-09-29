@@ -58,6 +58,7 @@ export default class BulletsEditor extends React.Component {
 
         return (
             <div className="bullets">
+                <label className="form-label">Bullets</label>
                 {bulletInputs}
                 <input type="text" className="form-control form-control-sm" value="" onChange={this.addNewBullet} />
             </div>

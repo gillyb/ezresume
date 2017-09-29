@@ -1,8 +1,9 @@
 const path = require('path');
 const currentDir = __dirname;
 
-const defaultMongoBinDir = '/Users/gillyb/utilities/mongodb/bin';
-const mongodExecutable = process.env['MONGOD'] || defaultMongoBinDir + '/mongod';
+// TODO: fix the file url so it will work on both windows and mac machines!
+const defaultMongoBinDir = 'C:\\Program Files\\MongoDB\\Server\\3.4\\bin';
+const mongodExecutable = process.env['MONGOD'] || defaultMongoBinDir + '\\mongod';
 
 const dbName = process.env['MONGO_DB_NAME'] || 'ezresume';
 
