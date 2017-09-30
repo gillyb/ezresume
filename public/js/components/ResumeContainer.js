@@ -43,8 +43,6 @@ export default class ResumeContainer extends React.Component {
         const updatedResumeObject = _.assign(this.state.resumeObject, newFields);
 
         this.saveResume(updatedResumeObject);
-
-        // TODO: save to db
     }
 
     deleteSection(sectionName, arrayIndex) {

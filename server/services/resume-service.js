@@ -88,7 +88,27 @@ module.exports = {
     },
 
     saveResume: function(resume) {
+
+        // TODO: make sure the user has permissions for this
+
         // TODO: implement this!
+        Resume.findById(resume._id, (err, doc) => {
+            if (err) {
+                // TODO: throw some error
+                return Promise.reject(err);
+            }
+
+            // TODO: override all resume properties here
+            // list of properties to override: [generalDetails, onlinePresence, workExperience, projects, skills, education, contactInfo, slug?]
+            // or maybe we should only send the parts we want to update in the first place, and not the whole resume object.
+
+            doc.save((err) => {
+                if (err)
+                    return Promise.reject(err);
+
+                return Promise.resolve();
+            });
+        });
     }
 
 };

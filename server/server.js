@@ -58,6 +58,7 @@ require('./db/setup');
 
 // controllers
 require('./controllers/main-controller.js')(app);
+require('./controllers/resume-controller.js')(app);
 
 
 
