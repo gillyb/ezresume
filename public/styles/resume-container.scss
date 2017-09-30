@@ -193,11 +193,6 @@
           top: -1px;
           left: -103px;
         }
-        &.delete {
-          top: 23px;
-          left: -32px;
-          background-color: #FF4141;
-        }
       }
 
       .actions {
@@ -213,7 +208,7 @@
         margin: (-$edit-area-hover-margin) (-$edit-area-hover-margin) (-$edit-area-hover-margin) (-$edit-area-hover-margin);
 
         .form-action {
-          &.edit, &.delete {
+          &.edit {
             display: inline-block;
           }
         }
@@ -233,7 +228,7 @@
           border-color: transparent;
           padding: 0;
           margin: 0;
-          .click-to-edit {
+          .form-action {
             display: none;
           }
         }
