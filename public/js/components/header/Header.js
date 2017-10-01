@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 
+import AuthService from './../../AuthService';
 import Notification from './Notification';
 
 export default class Header extends React.Component {
@@ -12,12 +13,7 @@ export default class Header extends React.Component {
     render() {
 
         // check if a user is logged in
-        // TODO: use a smarter service for this
-        let userObject;
-        const userData = document.getElementById('user-object').innerText;
-        if (userData) {
-            userObject = JSON.parse(userData);
-        }
+        const userObject = AuthService.getUser();
 
         return (
             <div className="header">

@@ -13,10 +13,6 @@ export default class App extends React.Component {
     }
 
     render() {
-
-        // TODO: extract this!!!
-        const resume = JSON.parse(document.getElementById('resume-object').innerText);
-
         return (
             <div className="app-container">
                 <Header />

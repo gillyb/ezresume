@@ -12,15 +12,24 @@ export default class Notification extends React.Component {
         };
 
         this.resumeServiceSubscriptions = {
-            'resume': 'saving resume'
+            'resume-saved': 'Resume saved successfully',
+            'resume-saved-locally': 'Resume is saved locally and is private. To make this public, please login.',
+            'resume-saved-error': 'Failed to save resume'   // TODO: make sure this is displayed as an error too!
         };
+
+        this.closeNotification = this.closeNotification.bind(this);
     }
 
     displayMessage(message) {
         this.setState({ message: message });
-        // setTimeout(() => {
-        //     this.setState({ message: null });
-        // }, 4000);
+        // TODO: maybe we should kill this timer on `componentWillUnmount()` just to be perfect
+        setTimeout(() => {
+            this.setState({ message: null });
+        }, 4000);
+    }
+
+    closeNotification() {
+        this.setState({ message: null });
     }
 
     componentDidMount() {
@@ -45,7 +54,7 @@ export default class Notification extends React.Component {
         return (
             <div className="notification-wrapper container">
                 <div className="alert alert-warning alert-dismissible fade show" role="alert">
-                    <button type="button" className="close" data-dismiss="alert" aria-label="Close">
+                    <button type="button" className="close" data-dismiss="alert" aria-label="Close" onClick={this.closeNotification}>
                         <span aria-hidden="true">&times;</span>
                     </button>
                     {this.state.message}

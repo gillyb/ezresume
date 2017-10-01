@@ -7,10 +7,11 @@ import './../styles/font-awesome/scss/font-awesome.scss';
 import './../styles/bootstrap-social/bootstrap-social.css';
 import './../styles/main.scss';
 
-import App from "./components/App";
-import LoginForm from "./components/auth/LoginForm";
-import RegisterForm from "./components/auth/RegisterForm";
-import ResumeContainer from "./components/ResumeContainer";
+import App from './components/App';
+import Home from './components/Home';
+import LoginForm from './components/auth/LoginForm';
+import RegisterForm from './components/auth/RegisterForm';
+import ResumeContainer from './components/ResumeContainer';
 
 const resume = JSON.parse(document.getElementById('resume-object').innerText);
 
@@ -18,6 +19,8 @@ ReactDOM.render((
     <BrowserRouter>
         <Route path="/">
             <App>
+
+                <Route path="/" exact component={Home} />
 
                 {/* Auth */}
                 <Route path="/login" component={LoginForm} />

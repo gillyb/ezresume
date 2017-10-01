@@ -2,14 +2,28 @@ import EventEmitter from 'wolfy87-eventemitter';
 
 class AuthService extends EventEmitter {
 
-    authenticated = false;
+    currentUser = undefined;
 
     constructor() {
         super();
 
-        window.setTimeout(() => {
-            this.trigger('open-login');
-        }, 5000);
+        const userData = document.getElementById('user-object').innerText;
+        if (userData) {
+            try {
+                this.currentUser = JSON.parse(userData);
+            }
+            catch (e) {
+                // TODO: maybe show some error message to the user, or just go on gracefully
+            }
+        }
+    }
+
+    isAuthenticated() {
+        return !!this.currentUser;
+    }
+
+    getUser() {
+        return this.currentUser;
     }
 
 }

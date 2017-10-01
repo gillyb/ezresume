@@ -13,6 +13,7 @@ export default class ResumeContainer extends React.Component {
     constructor(props) {
         super(props);
 
+        // TODO: public should only work with slug in the end
         const publicView = window.location.search.indexOf('public') !== -1;
 
         // TODO: check if we should separate the resumeObject to parts for a performance improvement
@@ -34,14 +35,7 @@ export default class ResumeContainer extends React.Component {
         if (this.state.publicView)
             return;
 
-        // if user is logged in save to db
-
-        // if anonymous user, save locally and show message
-
-        window.alert(JSON.stringify(newFields));
-
         const updatedResumeObject = _.assign(this.state.resumeObject, newFields);
-
         this.saveResume(updatedResumeObject);
     }
 
