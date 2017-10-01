@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 var resumeSchema = mongoose.Schema({
 
     // TODO: add themes settings
+    // TODO: maybe we should add languages the user knows
 
     userId: mongoose.Schema.ObjectId,
 
