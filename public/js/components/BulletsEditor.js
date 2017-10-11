@@ -28,6 +28,12 @@ export default class BulletsEditor extends React.Component {
                 if (this.refs['input_' + refInputIndex] === document.activeElement)
                     return;
             }
+
+            if (refInputIndex <= 0) {
+                this.refs['new_input'].focus();
+                return;
+            }
+
             this.refs['input_' + (refInputIndex - 1)].focus();
         }
     }
@@ -60,7 +66,7 @@ export default class BulletsEditor extends React.Component {
             <div className="bullets">
                 <label className="form-label">Bullets</label>
                 {bulletInputs}
-                <input type="text" className="form-control form-control-sm" value="" onChange={this.addNewBullet} />
+                <input type="text" className="form-control form-control-sm" ref="new_input" value="" onChange={this.addNewBullet} />
             </div>
         );
     }
