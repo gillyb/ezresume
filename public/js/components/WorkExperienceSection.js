@@ -71,7 +71,11 @@ export default class WorkExperienceSection extends React.Component {
         ) : <div className="hidden empty" />;
 
         if (!this.props.workExperience || !this.props.workExperience.length) {
-            return addWorkExperienceButton;
+            return (
+                <div className="resume-section work-experience">
+                    {addWorkExperienceButton}
+                </div>
+            );
         }
 
         const workExperiences = this.props.workExperience.map((section, index) => {
