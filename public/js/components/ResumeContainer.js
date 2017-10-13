@@ -27,8 +27,15 @@ export default class ResumeContainer extends React.Component {
     }
 
     saveResume(resumeObject) {
-        ResumeService.save(resumeObject);
+        // TODO: check if we can optimize this and not call `setState()` twice
         this.setState({ resumeObject: resumeObject });
+        ResumeService.save(resumeObject).then((newResumeId) => {
+            if (newResumeId) {
+                const updatedResume = {...this.state.resumeObject};
+                updatedResume._id = newResumeId;
+                this.setState({ resumeObject: updatedResume });
+            }
+        });
     }
 
     saveSection(newFields) {

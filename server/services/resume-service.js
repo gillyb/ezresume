@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Promise = require('bluebird');
+const _ = require('lodash');
 
 const logger = require('./../logger');
 const User = require('./../models/user');
@@ -91,23 +92,39 @@ module.exports = {
 
         // TODO: make sure the user has permissions for this
 
-        // TODO: implement this!
-        Resume.findById(resume._id, (err, doc) => {
-            if (err) {
-                // TODO: throw some error
-                return Promise.reject(err);
-            }
+        // const overrideProperties = ['generalDetails', 'onlinePresence', 'workExperience', 'projects', 'education', 'skills', 'contactInfo'];
 
-            // TODO: override all resume properties here
-            // list of properties to override: [generalDetails, onlinePresence, workExperience, projects, skills, education, contactInfo, slug?]
-            // or maybe we should only send the parts we want to update in the first place, and not the whole resume object.
+        // strip the resume from what shouldn't be here
+        // Object.keys(resume).forEach((resumeKey) => {
+        //     if (overrideProperties.indexOf(resumeKey) === -1)
+        //         delete resume[resumeKey];
+        // });
 
-            doc.save((err) => {
-                if (err)
+        if (resume._id) {
+            return Resume.findById(resume._id).exec().then((err, doc) => {
+                if (err) {
+                    // TODO: throw some error
                     return Promise.reject(err);
+                }
 
-                return Promise.resolve();
+                // copy changed properties to the db resume model
+                _.assign(doc, resume);
+
+                // TODO: maybe check for error too
+                return doc.save();
             });
+        }
+
+        // resume doesn't exist in db - create it
+        const newResume = new Resume(resume);
+        return newResume.save();        // TODO: maybe we should check for error too
+    },
+
+    getLastEditedResume: function(userId) {
+        return Resume.find({ userId: userId })
+            .sort({ updated: 1 })
+            .exec().then((resume) => {
+            return resume;
         });
     }
 

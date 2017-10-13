@@ -11,9 +11,16 @@ module.exports = (app) => {
         }
 
         const resume = req.body.resume;
+        resume.userId = user;
+
         // TODO: validate the resume according to the Resume schema
 
-        resumeService.saveResume(resume);
+        resumeService.saveResume(resume).then((updatedResume) => {
+            res.json(updatedResume);
+        }).catch((err) => {
+            // TODO: do something useful with this error
+            res.sendStatus(500);
+        });
 
     });
 

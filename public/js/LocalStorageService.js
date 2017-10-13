@@ -44,6 +44,10 @@ class LocalStorageService {
         return storageValue;
     }
 
+    remove(key) {
+        window.localStorage.removeItem(key);
+    }
+
 }
 
 export default new LocalStorageService();
