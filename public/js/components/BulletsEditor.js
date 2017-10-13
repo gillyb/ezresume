@@ -6,6 +6,7 @@ export default class BulletsEditor extends React.Component {
     constructor(props) {
         super(props);
 
+        this.updatingBullet = false;
         this.updatingNewBullet = false;
 
         this.handleChange = this.handleChange.bind(this);
@@ -21,7 +22,7 @@ export default class BulletsEditor extends React.Component {
 
             this.updatingNewBullet = false;
         }
-        else {
+        else if (this.updatingBullet) {
             // make sure one of the input elements has focus
             let refInputIndex = -1;
             while (this.refs['input_' + (++refInputIndex)]) {
@@ -35,6 +36,8 @@ export default class BulletsEditor extends React.Component {
             }
 
             this.refs['input_' + (refInputIndex - 1)].focus();
+
+            this.updatingBullet = false;
         }
     }
 
@@ -51,6 +54,7 @@ export default class BulletsEditor extends React.Component {
         updatedBullets[event.target.name] = event.target.value;
         updatedBullets = _.compact(updatedBullets);
 
+        this.updatingBullet = true;
         this.props.handleChange(updatedBullets);
     }
 

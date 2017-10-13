@@ -11,7 +11,10 @@ module.exports = (app) => {
             resumeService.getLastEditedResume(user.id).then((resume) => {
 
                 if (resume && resume.length > 0) {
-                    res.render('main', { user, resume });
+                    res.render('main', {
+                        user,
+                        resume: resume[0]
+                    });
                     return;
                 }
 
