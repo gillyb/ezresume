@@ -24,8 +24,13 @@
       color: #999;
     }
 
-    .inline-form.form-group {
-      position: relative;
+    .inline-form {
+      &.form-group {
+        position: relative;
+      }
+      .form-action {
+        display: none;
+      }
     }
 
     .fullName {
@@ -139,7 +144,6 @@
 
     // TODO: move these to the top
     $edit-area-hover-margin: 6px;
-    $click-to-edit-height: 23px;
     $add-section-bottom: -20px;
 
     .resume-section {

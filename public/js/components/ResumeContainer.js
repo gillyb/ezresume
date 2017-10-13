@@ -7,14 +7,14 @@ import ProjectsSection from "./ProjectsSection";
 import SkillsSection from "./SkillsSection";
 
 import ResumeService from './../ResumeService';
+import IsPublic from './../IsPublic';
 
 export default class ResumeContainer extends React.Component {
 
     constructor(props) {
         super(props);
 
-        // TODO: public should only work with slug in the end
-        const publicView = window.location.search.indexOf('public') !== -1;
+        const publicView = IsPublic();
 
         // TODO: check if we should separate the resumeObject to parts for a performance improvement
         this.state = {

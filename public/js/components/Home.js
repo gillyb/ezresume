@@ -28,8 +28,8 @@ export default class HomeComponent extends React.Component {
                             <h4 className="card-title justify-content-center">Hello & Welcome</h4>
                             <p className="card-text">Welcome to the easiest and funnest way to create a resume.</p>
                             <p className="card-text">
-                                All you have to do to begin is click on the top menu
-                                <Link to="/resume">Create New Resume</Link>
+                                All you have to do to begin is click on the top menu&nbsp;
+                                <Link to="/resume">Create Resume</Link>&nbsp;
                                 and a full resume will be created just for you. With details and all.<br/>
                                 Of course they won't be your details, but that can be changed very easily. All you have to do, is click
                                 on the different sections to edit or delete them to match your personal details.

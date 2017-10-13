@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3dda91a0-20aa-42df-a8da-7d9aaa1787cd" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/IsPublic.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/components/Home.js" afterPath="$PROJECT_DIR$/public/js/components/Home.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/components/ResumeContainer.js" afterPath="$PROJECT_DIR$/public/js/components/ResumeContainer.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/components/header/Header.js" afterPath="$PROJECT_DIR$/public/js/components/header/Header.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/styles/resume-container.scss" afterPath="$PROJECT_DIR$/public/styles/resume-container.scss" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -28,11 +33,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Home.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Home.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/js/components/Home.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" column="8" lean-forward="false" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
+            <state relative-caret-position="316">
+              <caret line="31" column="32" lean-forward="false" selection-start-line="31" selection-start-column="32" selection-end-line="31" selection-end-column="32" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -40,14 +45,46 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Header.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Header.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/js/components/header/Header.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="376">
-              <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="resume-container.scss" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/styles/resume-container.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="26" column="18" lean-forward="true" selection-start-line="26" selection-start-column="18" selection-end-line="26" selection-end-column="18" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ResumeContainer.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/js/components/ResumeContainer.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="248">
+              <caret line="24" column="8" lean-forward="true" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="8" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IsPublic.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/js/IsPublic.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -64,18 +101,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ResumeService.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/js/ResumeService.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="39" column="20" lean-forward="true" selection-start-line="39" selection-start-column="20" selection-end-line="39" selection-end-column="20" />
-              <folding>
-                <element signature="e#0#31#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="resume-controller.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/controllers/resume-controller.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -86,33 +111,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BulletsEditor.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/js/components/BulletsEditor.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="38" column="0" lean-forward="true" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="main-controller.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/controllers/main-controller.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="376">
               <caret line="41" column="0" lean-forward="true" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="InlineForm.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/js/components/InlineForm.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="67" column="0" lean-forward="true" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -135,17 +138,13 @@
       <list>
         <option value="HTML File" />
         <option value="Pug File" />
-        <option value="JavaScript File" />
         <option value="SCSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>onSave(oldFields, updatedFields)</find>
-      <find>on</find>
-      <find>onSave</find>
-      <find>onSave(updatedFields)</find>
       <find>onSave(updatedFields</find>
       <find>onSave(updatedField</find>
       <find>onSave(updatedFiel</find>
@@ -172,6 +171,10 @@
       <find>window.alert</find>
       <find>add-</find>
       <find>success</find>
+      <find>edit</find>
+      <find>click-to-edit</find>
+      <find>$click-to-edit-height</find>
+      <find>$add-section-bottom</find>
     </findStrings>
     <replaceStrings>
       <replace>className=</replace>
@@ -184,7 +187,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/server/auth/anonymous.js" />
         <option value="$PROJECT_DIR$/public/js/inline-editor/InlineEditor.js" />
         <option value="$PROJECT_DIR$/public/js/inline-edit/InlineEdit.js" />
         <option value="$PROJECT_DIR$/public/js/components/InlineEdit.js" />
@@ -193,7 +195,6 @@
         <option value="$PROJECT_DIR$/public/styles/common.scss" />
         <option value="$PROJECT_DIR$/public/js/components/TimeRangeEditor.js" />
         <option value="$PROJECT_DIR$/public/js/components/DateInput.js" />
-        <option value="$PROJECT_DIR$/public/styles/resume-container.scss" />
         <option value="$PROJECT_DIR$/public/styles/_header.scss" />
         <option value="$PROJECT_DIR$/server/auth/facebook.js" />
         <option value="$PROJECT_DIR$/public/js/components/Header.js" />
@@ -205,7 +206,6 @@
         <option value="$PROJECT_DIR$/public/views/main.pug" />
         <option value="$PROJECT_DIR$/public/js/components/auth/RegisterForm.js" />
         <option value="$PROJECT_DIR$/public/js/components/App.js" />
-        <option value="$PROJECT_DIR$/public/js/components/header/Header.js" />
         <option value="$PROJECT_DIR$/public/js/AuthService.js" />
         <option value="$PROJECT_DIR$/public/styles/header.scss" />
         <option value="$PROJECT_DIR$/public/styles/login.scss" />
@@ -230,11 +230,14 @@
         <option value="$PROJECT_DIR$/public/js/LocalStorageService.js" />
         <option value="$PROJECT_DIR$/server/controllers/resume-controller.js" />
         <option value="$PROJECT_DIR$/public/js/ResumeService.js" />
-        <option value="$PROJECT_DIR$/public/js/components/ResumeContainer.js" />
         <option value="$PROJECT_DIR$/server/services/resume-service.js" />
         <option value="$PROJECT_DIR$/public/js/components/BulletsEditor.js" />
         <option value="$PROJECT_DIR$/server/controllers/main-controller.js" />
         <option value="$PROJECT_DIR$/public/js/components/Home.js" />
+        <option value="$PROJECT_DIR$/public/styles/resume-container.scss" />
+        <option value="$PROJECT_DIR$/public/js/IsPublic.js" />
+        <option value="$PROJECT_DIR$/public/js/components/ResumeContainer.js" />
+        <option value="$PROJECT_DIR$/public/js/components/header/Header.js" />
       </list>
     </option>
   </component>
@@ -341,21 +344,6 @@
               <item name="ezresume" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
               <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ezresume" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ezresume" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ezresume" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ezresume" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="auth" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ezresume" type="b2602c69:ProjectViewProjectNode" />
@@ -540,12 +528,12 @@
       <updated>1505210850512</updated>
       <workItem from="1505210852125" duration="33775000" />
       <workItem from="1505673027471" duration="119660000" />
-      <workItem from="1507751706494" duration="9987000" />
+      <workItem from="1507751706494" duration="11013000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="163422000" />
+    <option name="totallyTimeSpent" value="164448000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="873" extended-state="0" />
@@ -584,14 +572,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/js/AuthService.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="5" lean-forward="false" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/js/components/auth/RegisterForm.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -689,6 +669,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -832,24 +813,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/components/ResumeContainer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
-          <caret line="27" column="0" lean-forward="true" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/styles/resume-container.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
-          <caret line="233" column="9" lean-forward="true" selection-start-line="233" selection-start-column="9" selection-end-line="233" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/js/components/WorkExperienceSection.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-304">
@@ -932,20 +895,46 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/components/header/Header.js">
+    <entry file="file://$PROJECT_DIR$/public/js/components/Home.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="376">
-          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+        <state relative-caret-position="316">
+          <caret line="31" column="32" lean-forward="false" selection-start-line="31" selection-start-column="32" selection-end-line="31" selection-end-column="32" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/components/Home.js">
+    <entry file="file://$PROJECT_DIR$/public/styles/resume-container.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
-          <caret line="12" column="8" lean-forward="false" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
+          <caret line="26" column="18" lean-forward="true" selection-start-line="26" selection-start-column="18" selection-end-line="26" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/IsPublic.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/components/ResumeContainer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="24" column="8" lean-forward="true" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="8" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/components/header/Header.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>

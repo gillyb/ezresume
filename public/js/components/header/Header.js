@@ -1,19 +1,27 @@
 import React from 'react';
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import AuthService from './../../AuthService';
 import Notification from './Notification';
+import IsPublic from './../../IsPublic';
 
 export default class Header extends React.Component {
 
     constructor(props) {
         super(props);
+
+        this.state = {
+            publicView: IsPublic()
+        };
     }
 
     render() {
 
         // check if a user is logged in
         const userObject = AuthService.getUser();
+
+        if (this.state.publicView)
+            return null;
 
         return (
             <div className="header">
@@ -25,7 +33,7 @@ export default class Header extends React.Component {
                     <div className="collapse navbar-collapse" id="navbarText">
                         <ul className="navbar-nav mr-auto">
                             <li className="nav-item">
-                                <Link to="/resume" className="nav-link">Edit Resume</Link>
+                                <Link to="/resume" className="nav-link">{AuthService.isAuthenticated() ? 'Edit Resume' : 'Create Resume'}</Link>
                             </li>
                             <li className="nav-item">
                                 <a className="nav-link" href="#">Pricing</a>
