@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 
+import AuthService from './../AuthService';
+
 export default class HomeComponent extends React.Component {
 
     constructor(props) {
@@ -8,10 +10,16 @@ export default class HomeComponent extends React.Component {
     }
 
     componentWillMount() {
-        // TODO: check if the user is logged in. if so, redirect to their last edited resume
+        // TODO: maybe we should redirect in a better way
+        if (AuthService.isAuthenticated())
+            window.location.href = '/resume';
     }
 
     render() {
+
+        if (AuthService.isAuthenticated())
+            return null;
+
         return (
             <div className="row justify-content-center">
                 <div className="col-6">
