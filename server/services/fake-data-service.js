@@ -50,7 +50,17 @@ const fakeEducation = [];
 
 const fakeProjects = [];
 
-const fakeSkills = [];
+const fakeSkills = [
+    ['Autodidact', 'Highly Motivated', 'Very Thorough', 'Well Educated'],
+    ['Versatile', 'Valedictory', 'Valiant', 'Vagrant'],
+    ['Charming', 'Calm', 'Calculated', 'Cavalier', 'Catalytic'],
+    ['Machiavellian', 'Marvellous', 'Masculine', 'Mature', 'Meticulous'],
+    ['Naive', 'Natural', 'Nonchalant', 'Noble', 'Nourishing'],
+    ['Tactful', 'Tantalizing', 'Tedious', 'Thorough', 'Thirsty', 'Thoughtful', 'Thrilled'],
+    ['Able', 'Abnormal', 'Accepting', 'Affectionate', 'Analytical', 'Argumentative', 'Assertive'],
+    ['Passionate', 'Peaceful', 'Philanthropic', 'Pleasing', 'Polite', 'Persistent'],
+    ['Obedient', 'Opinionated', 'Outgoing', 'Organized', 'Open']
+];
 
 const fakeContactInfo = [];
 
