@@ -117,7 +117,7 @@ function getRandomInt(min, max) {
 }
 
 function getRandomData(arr) {
-    return arr[getRandomInt(0, arr.length - 1)];
+    return arr[getRandomInt(0, arr.length )];
 }
 
 module.exports = {
