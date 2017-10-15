@@ -2,6 +2,7 @@ import React from 'react';
 import _ from 'lodash';
 
 import InlineForm from "./InlineForm";
+import ResumeDataGenerator from './../ResumeDataGenerator';
 
 export default class ProjectsSection extends React.Component {
 
@@ -24,9 +25,11 @@ export default class ProjectsSection extends React.Component {
 
     addProject() {
         let updatedProjects = this.props.projects.slice();
-        updatedProjects.push({ projectName: '' });       // TODO: maybe add some random values here for the user to start with
 
-        this.props.onUpdate({ projects: updatedProjects });
+        ResumeDataGenerator.get('projects').then((sectionData) => {
+            updatedProjects.push(sectionData);
+            this.props.onUpdate({ projects: updatedProjects });
+        });
     }
 
     onSave(updatedFields, arrayIndex) {

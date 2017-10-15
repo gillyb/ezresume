@@ -2,6 +2,7 @@ import React from 'react';
 import _ from 'lodash';
 
 import InlineForm from "./InlineForm";
+import ResumeDataGenerator from './../ResumeDataGenerator';
 
 export default class WorkExperienceSection extends React.Component {
 
@@ -24,9 +25,11 @@ export default class WorkExperienceSection extends React.Component {
 
     addWorkExperience() {
         let updatedWorkExperience = this.props.workExperience.slice();
-        updatedWorkExperience.push({ companyName: '' });       // TODO: maybe add some random values here for the user to start with
 
-        this.props.onUpdate({ workExperience: updatedWorkExperience });
+        ResumeDataGenerator.get('workExperience').then((sectionData) => {
+            updatedWorkExperience.push(sectionData);
+            this.props.onUpdate({ workExperience: updatedWorkExperience });
+        });
     }
 
     onSave(updatedFields, arrayIndex) {

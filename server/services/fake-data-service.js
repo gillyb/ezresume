@@ -1,4 +1,5 @@
 
+// TODO: maybe we should put this in a db, or separate it into separate files
 const fakeNames = ['John Doe', 'Kaiser Soze', 'Christina Jones', 'Lizette Chavez', 'Daniel Bloomberg', 'Christian L. Hoier', 'Joe Q. Watson', 'Sherlock Holmes', 'Katie Kessler', 'John Quincy', 'Rubert Hanson'];
 
 const fakeGeneralDetails = [

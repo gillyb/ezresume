@@ -1,5 +1,7 @@
 import React from 'react';
+
 import InlineForm from "./InlineForm";
+import ResumeDataGenerator from './../ResumeDataGenerator';
 
 export default class SkillsSection extends React.Component {
 
@@ -16,7 +18,9 @@ export default class SkillsSection extends React.Component {
     }
 
     addSkills() {
-        this.props.onUpdate({ skills: ['List', 'Your', 'Skills'] });
+        ResumeDataGenerator.get('skills').then((sectionData) => {
+            this.props.onUpdate({ skills: sectionData });
+        });
     }
 
     onSave(updatedFields) {
@@ -52,7 +56,11 @@ export default class SkillsSection extends React.Component {
         ) : <div className="hidden empty" />;
 
         if (!this.props.skills || !this.props.skills.length || !this.props.skills[0]) {
-            return addSkillsButton;
+            return (
+                <div className="resume-section skills">
+                    {addSkillsButton}
+                </div>
+            );
         }
 
         let formFields = this.template.slice();

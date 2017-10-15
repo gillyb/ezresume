@@ -2,6 +2,7 @@ import React from 'react';
 import _ from 'lodash';
 
 import InlineForm from "./InlineForm";
+import ResumeDataGenerator from './../ResumeDataGenerator';
 
 export default class EducationSection extends React.Component {
 
@@ -24,9 +25,11 @@ export default class EducationSection extends React.Component {
 
     addEducation() {
         let updatedEducation = this.props.education.slice();
-        updatedEducation.push({ school: '' });       // TODO: maybe add some random values here for the user to start with
 
-        this.props.onUpdate({ education: updatedEducation });
+        ResumeDataGenerator.get('education').then((sectionData) => {
+            updatedEducation.push(sectionData);
+            this.props.onUpdate({ education: updatedEducation });
+        });
     }
 
     onSave(updatedFields, arrayIndex) {
