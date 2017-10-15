@@ -29,6 +29,10 @@ const fakeGeneralDetails = [
     {
         jobTitle: 'Chemical waste producer',
         aboutYou: 'It is what it is...'
+    },
+    {
+        jobTitle: 'Master Illusionist',
+        aboutYou: 'I create illusions. I can create illusions on anything and I can customize them for any event you need.'
     }
 ];
 
@@ -44,11 +48,51 @@ const fakeOnlinePresence = [
     { links: ['https://twitter.com/KimKardashian', 'https://www.facebook.com/KimKardashian/'] }
 ];
 
-const fakeWorkExperience = [];
+const fakeWorkExperience = [
+    {
+        companyName: 'Facebook',
+        companyWebsite: 'http://www.facebook.com',
+        jobTitle: 'Head of recycling',
+        period: {},
+        summary: 'As the head of recycling, I designed and implemented many new ways to recycle the waste of all the facebook workers and turning it into renewable energy.',
+        bullets: ['Implemented a system to recycle aluminum', 'Recycled all human waste']
+    },
+];
 
-const fakeEducation = [];
+const fakeEducation = [
+    {
+        school: 'Carnegie Watermelon',
+        degree: 'B.A.',
+        major: 'Philosophy',
+        period: {},
+        summary: 'I\'m a philosopher, or as my dad calls it - "a professional BS-er". I like what I do, and what I do likes me. If that doesn\'t make any sense to you, then you need to study philosophy to understand.',
+        bullets: ['Cum Laude', 'Average score of 99.9 on exams']
+    },{
+        school: 'U.I.T. Universal Institute of Technology',
+        degree: 'Masters',
+        major: 'Physics',
+        period: {},
+        summary: 'Studied physics at the universal institute of technology. I finished a full Masters degree in only two months. I know that\'s hard to believe but it\'s totally true, I swear.'
+    }
+];
 
-const fakeProjects = [];
+const fakeProjects = [
+    {
+        projectName: 'SHA-256 Brute-force hack hardware chip',
+        role: 'Lead designer and programmer of the project.',
+        website: 'http://HackedSHA256HashCryptofunction.com',
+        period: {},
+        summary: 'YES! I have hacked the SHA256 algorithm using a piece of hardware I designed and built. This hacks the SHA256 algorithm in only a few seconds, it\'s truly amazing! It was also pretty easy to do, so I have no idea how no one succeeded doing this in the past already. I guess I\'m surrounded by idiots.',
+        bullets: ['Fully programmed in C & Assembly', 'Chip design using AutoDesk tools', 'Supervised the manufacturing process in Shenzhen']
+    },{
+        projectName: 'A revolutionary waste disposal device on wheels',
+        role: 'Head industrial designer',
+        website: 'http://www.RevolutionizedWasteDisposal.com',
+        period: {},
+        summary: 'I was part of a team that engineered an amazing device that carries waste, and mobilizes it to the main waste facility in the area. It has the capacity to carry a few tons of waste, and reaches speeds of 90mph easily.',
+        bullets: ['Designed and built in a single weekend', 'Won many awards for design and innovation']
+    }
+];
 
 const fakeSkills = [
     ['Autodidact', 'Highly Motivated', 'Very Thorough', 'Well Educated'],
@@ -62,10 +106,28 @@ const fakeSkills = [
     ['Obedient', 'Opinionated', 'Outgoing', 'Organized', 'Open']
 ];
 
+// TODO: fill this out!
 const fakeContactInfo = [];
+
+function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
+}
+
+function getRandomData(arr) {
+    return arr[getRandomInt(0, arr.length - 1)];
+}
 
 module.exports = {
 
-    
+    getFakeName() { return getRandomData(fakeNames); },
+    getFakeGeneralDetails() { return getRandomData(fakeGeneralDetails); },
+    getFakeWorkExperience() { return getRandomData(fakeWorkExperience); },
+    getFakeOnlinePresence() { return getRandomData(fakeOnlinePresence); },
+    getFakeEducation() { return getRandomData(fakeEducation); },
+    getFakeSkills() { return getRandomData(fakeSkills); },
+    getFakeProject() { return getRandomData(fakeProjects); },
+    getFakeContactInfo() { return getRandomData(fakeContactInfo); }
 
 };
