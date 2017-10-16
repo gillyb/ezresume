@@ -75,7 +75,7 @@ export default class ResumeContainer extends React.Component {
             <div className={containerClassName}>
                 <h1 className="full-name">{this.state.resumeObject.fullName}</h1>
                 <GeneralDetailsSection
-                    formFields={this.state.resumeObject.generalDetails}
+                    generalDetails={this.state.resumeObject.generalDetails}
                     publicView={this.state.publicView}
                     onUpdate={this.saveSection}
                     onDelete={this.deleteSection}
