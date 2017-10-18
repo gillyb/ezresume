@@ -113,11 +113,25 @@ const fakeContactInfo = [];
 function getRandomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
+    return Math.floor(Math.random() * (max - min)) + min; // The maximum is exclusive and the minimum is inclusive
 }
 
 function getRandomData(arr) {
-    return arr[getRandomInt(0, arr.length )];
+    const randomInfo = arr[getRandomInt(0, arr.length )];
+    if (randomInfo.hasOwnProperty('period')) {
+        let startYear = 2015 - getRandomInt(0, 11);
+        randomInfo.period = {
+            startDate: {
+                month: getRandomInt(1, 13),
+                year: startYear
+            },
+            endDate: {
+                month: getRandomInt(1, 13),
+                year: startYear + getRandomInt(1, (2018 - startYear))
+            }
+        };
+    }
+    return randomInfo;
 }
 
 module.exports = {
