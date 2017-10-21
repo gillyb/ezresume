@@ -46,6 +46,30 @@
       font-size: 1.2rem;
     }
 
+    &.online-presence {
+      ul {
+        list-style: none;
+        padding: 0;
+      }
+      li {
+        display: inline-block;
+        margin-right: 6px;
+      }
+      .social-icon {
+        display: inline-block;
+        border: solid 1px #000;
+        border-radius: 4px;
+        width: 24px;
+        height: 24px;
+        text-align: center;
+        vertical-align: middle;
+        cursor: pointer;
+        &:hover {
+          background-color: #ddd;
+        }
+      }
+    }
+
     &.general-details {
       line-height: 1.35em;
       .jobTitle {

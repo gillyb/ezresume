@@ -70,6 +70,7 @@ export default class SkillsSection extends React.Component {
             <div className="resume-section skills">
                 <h4 className="section-title">Skills</h4>
                 <InlineForm
+                    sectionName="skills"
                     formFields={formFields}
                     onSave={this.onSave}
                     onDelete={this.onDelete}

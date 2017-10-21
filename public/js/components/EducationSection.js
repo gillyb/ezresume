@@ -89,6 +89,7 @@ export default class EducationSection extends React.Component {
             });
 
             return <InlineForm
+                sectionName="education"
                 formFields={formFields}
                 key={index}
                 arrayIndex={index}

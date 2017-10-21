@@ -4,6 +4,7 @@ import _ from 'lodash';
 import TimeRangeEditor from './TimeRangeEditor';
 import BulletsEditor from './BulletsEditor';
 import DisplayTimeRange from './DisplayTimeRange';
+import SocialMediaLink from './SocialMediaLink';
 
 export default class InlineForm extends React.Component {
 
@@ -194,9 +195,11 @@ export default class InlineForm extends React.Component {
                             break;
                         case 'links':
                             fieldValues.push(
-                                <ul className="links" key={fieldInfo.key}>
+                                <ul className="links online-presence" key={fieldInfo.key}>
                                     {fieldInfo.value.map((link, index) =>
-                                        <li key={index}>{link}</li>
+                                        <li key={index}>
+                                            <SocialMediaLink link={link} />
+                                        </li>
                                     )}
                                 </ul>
                             );
@@ -206,7 +209,7 @@ export default class InlineForm extends React.Component {
             });
         }
 
-        const formClass = 'inline-form' + (this.state.editing ? ' edit-mode' : '');
+        const formClass = 'inline-form ' + this.props.sectionName + (this.state.editing ? ' edit-mode' : '');
 
         return (
             <div className={formClass} onClick={this.startEditing}>

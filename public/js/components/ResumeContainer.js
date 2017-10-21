@@ -8,6 +8,7 @@ import SkillsSection from "./SkillsSection";
 
 import ResumeService from './../ResumeService';
 import IsPublic from './../IsPublic';
+import OnlinePresenceSection from "./OnlinePresenceSection";
 
 export default class ResumeContainer extends React.Component {
 
@@ -74,6 +75,12 @@ export default class ResumeContainer extends React.Component {
         return (
             <div className={containerClassName}>
                 <h1 className="full-name">{this.state.resumeObject.fullName}</h1>
+                <OnlinePresenceSection
+                    onlinePresence={this.state.resumeObject.onlinePresence}
+                    publicView={this.state.publicView}
+                    onUpdate={this.saveSection}
+                    onDelete={this.deleteSection}
+                />
                 <GeneralDetailsSection
                     generalDetails={this.state.resumeObject.generalDetails}
                     publicView={this.state.publicView}

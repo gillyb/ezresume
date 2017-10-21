@@ -1,20 +1,26 @@
 import React from 'react';
 import InlineForm from "./InlineForm";
 
+import ResumeDataGenerator from './../ResumeDataGenerator';
+
 export default class OnlinePresenceSection extends React.Component {
 
     constructor(props) {
         super(props);
-
-        this.state = {
-            fields: this.props.formFields
-        };
 
         this.template = [
             { name: 'Online presence (links to online public profiles)', key: 'links', type: 'links' }
         ];
 
         this.onSave = this.onSave.bind(this);
+        this.onDelete = this.onDelete.bind(this);
+        this.addOnlinePresence = this.addOnlinePresence.bind(this);
+    }
+
+    addOnlinePresence() {
+        ResumeDataGenerator.get('onlinePresence').then((sectionData) => {
+            this.props.onUpdate({ onlinePresence: sectionData });
+        });
     }
 
     onSave(updatedFields) {
@@ -24,19 +30,49 @@ export default class OnlinePresenceSection extends React.Component {
         this.props.onUpdate({ onlinePresence: updatedFields });
     }
 
-    render() {
+    onDelete() {
+        if (this.props.publicView)
+            return;
 
-        // const displayFields = this.template.map((field) => {
-        //     if (this.state.fields.hasOwnProperty(field.key))
-        //         field.value = this.state.fields[field.key];
-        //     return field;
-        // });
+        this.props.onDelete('onlinePresence');
+    }
+
+    render() {
+        const addOnlinePresenceButton = !this.props.publicView ? (
+            <div className="add-section">
+                {/* TODO: extract this button to something common */}
+                <button
+                    type="button"
+                    className="btn btn-sm btn-outline-secondary"
+                    onClick={this.addOnlinePresence}
+                >
+                    Add Online Presence
+                    <svg fill="#868e96" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
+                    </svg>
+                </button>
+            </div>
+        ) : <div className="hidden empty" />;
+
+        if (!this.props.onlinePresence || !this.props.onlinePresence.links || !this.props.onlinePresence.links[0]) {
+            return (
+                <div className="resume-section online-presence">
+                    {addOnlinePresenceButton}
+                </div>
+            );
+        }
+
+        let formFields = this.template.slice();
+        formFields[0].value = this.props.onlinePresence.links;
 
         return (
-            <div className="resume-section general-details">
+            <div className="resume-section online-presence">
                 <InlineForm
-                    formFields={displayFields}
+                    sectionName="online-presence"
+                    formFields={formFields}
                     onSave={this.onSave}
+                    onDelete={this.onDelete}
                     publicView={this.props.publicView}
                 />
             </div>

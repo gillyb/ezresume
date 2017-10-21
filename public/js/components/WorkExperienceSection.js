@@ -90,6 +90,7 @@ export default class WorkExperienceSection extends React.Component {
             });
 
             return <InlineForm
+                sectionName="work-experience"
                 formFields={formFields}
                 key={index}
                 arrayIndex={index}

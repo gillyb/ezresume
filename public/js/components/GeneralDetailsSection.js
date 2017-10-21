@@ -81,6 +81,7 @@ export default class GeneralDetailsSection extends React.Component {
         return (
             <div className="resume-section general-details">
                 <InlineForm
+                    sectionName="general-details"
                     formFields={displayFields}
                     onSave={this.onSave}
                     onDelete={this.onDelete}
