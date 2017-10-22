@@ -1,7 +1,7 @@
 import React from 'react';
 import _ from 'lodash';
 
-export default class BulletsEditor extends React.Component {
+export default class LinksEditor extends React.Component {
 
     constructor(props) {
         super(props);
@@ -10,13 +10,13 @@ export default class BulletsEditor extends React.Component {
         this.updatingNewLink = false;
 
         this.handleChange = this.handleChange.bind(this);
-        this.addNewBullet = this.addNewBullet.bind(this);
+        this.addNewLink = this.addNewLink.bind(this);
     }
 
     componentDidUpdate() {
         if (this.updatingNewLink) {
             // make sure the focus stays on the right input
-            const lastEditedElement = this.refs['input_' + (this.props.bullets.length - 1)];
+            const lastEditedElement = this.refs['input_' + (this.props.links.length - 1)];
             lastEditedElement.focus();
             lastEditedElement.setSelectionRange(lastEditedElement.value.length, lastEditedElement.value.length);
 
@@ -41,36 +41,36 @@ export default class BulletsEditor extends React.Component {
         }
     }
 
-    addNewBullet(event) {
-        let updatedBullets = this.props.bullets.slice();
-        updatedBullets.push(event.target.value);
+    addNewLink(event) {
+        let updatedLinks = this.props.links.slice();
+        updatedLinks.push(event.target.value);
 
         this.updatingNewLink = true;
-        this.props.handleChange(updatedBullets);
+        this.props.handleChange(updatedLinks);
     }
 
     handleChange(event) {
-        let updatedBullets = this.props.bullets.slice();
-        updatedBullets[event.target.name] = event.target.value;
-        updatedBullets = _.compact(updatedBullets);
+        let updatedLinks = this.props.links.slice();
+        updatedLinks[event.target.name] = event.target.value;
+        updatedLinks = _.compact(updatedLinks);
 
         this.updatingLink = true;
-        this.props.handleChange(updatedBullets);
+        this.props.handleChange(updatedLinks);
     }
 
     render() {
 
-        const bulletInputs = this.props.bullets.map((bullet, index) =>
+        const linksInput = this.props.links.map((link, index) =>
             <div className="form-group" key={index}>
-                <input type="text" className="form-control form-control-sm" ref={'input_' + index} name={index} value={bullet} onChange={this.handleChange} />
+                <input type="text" className="form-control form-control-sm" ref={'input_' + index} name={index} value={link} onChange={this.handleChange} />
             </div>
         );
 
         return (
-            <div className="bullets">
-                <label className="form-label">Bullets</label>
-                {bulletInputs}
-                <input type="text" className="form-control form-control-sm" ref="new_input" value="" onChange={this.addNewBullet} />
+            <div className="links">
+                <label className="form-label">Links</label>
+                {linksInput}
+                <input type="text" className="form-control form-control-sm" ref="new_input" value="" onChange={this.addNewLink} />
             </div>
         );
     }

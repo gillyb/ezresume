@@ -5,6 +5,7 @@ import TimeRangeEditor from './TimeRangeEditor';
 import BulletsEditor from './BulletsEditor';
 import DisplayTimeRange from './DisplayTimeRange';
 import SocialMediaLink from './SocialMediaLink';
+import LinksEditor from './LinksEditor';
 
 export default class InlineForm extends React.Component {
 
@@ -24,6 +25,7 @@ export default class InlineForm extends React.Component {
         this.startEditing = this.startEditing.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.handleBulletsChange = this.handleBulletsChange.bind(this);
+        this.handleLinksChange = this.handleLinksChange.bind(this);
         this.updateTimeRange = this.updateTimeRange.bind(this);
     }
 
@@ -74,6 +76,12 @@ export default class InlineForm extends React.Component {
     handleBulletsChange(updatedValue) {
         let updatedFields = this.cloneArray(this.state.fields);
         _.find(updatedFields, (field) => field.type === 'bullets').value = updatedValue;
+        this.setState({ fields: updatedFields });
+    }
+
+    handleLinksChange(updatedValue) {
+        let updatedFields = this.cloneArray(this.state.fields);
+        _.find(updatedFields, (field) => field.type === 'links').value = updatedValue;
         this.setState({ fields: updatedFields });
     }
 
@@ -149,7 +157,8 @@ export default class InlineForm extends React.Component {
                         fieldValues.push(
                             <LinksEditor
                                 key={fieldInfo.key}
-                                links={fieldInfo.values}
+                                links={fieldInfo.value || []}
+                                handleChange={this.handleLinksChange}
                             />
                         );
                         break;
