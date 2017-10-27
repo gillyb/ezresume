@@ -13,6 +13,7 @@ export default class GeneralDetailsSection extends React.Component {
 
         this.template = [
             // TODO: add support for the headshot here
+            { name: 'Headshot', key: 'headshot', type: 'image' },
             { name: 'Full Name', key: 'fullName', type: 'string' },
             { name: 'Job title', key: 'jobTitle', type: 'string' },
             { name: 'About You', key: 'aboutYou', type: 'multiline' },

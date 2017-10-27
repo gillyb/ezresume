@@ -193,6 +193,25 @@
           }
         }
       }
+
+      &.general-details {
+        .headshot-dropzone {
+          display: inline-block;
+          float: left;
+          height: 140px;
+          width: 140px;
+          border: dashed 2px #444;
+          border-radius: 8px;
+          text-align: center;
+        }
+        .form-group {
+          &.fullName, &.jobTitle, &.aboutYou {
+            float: right;
+            width: 740px;
+          }
+        }
+      }
+
     }
 
     .inline-form {

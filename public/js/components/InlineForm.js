@@ -6,6 +6,7 @@ import BulletsEditor from './BulletsEditor';
 import DisplayTimeRange from './DisplayTimeRange';
 import SocialMediaLink from './SocialMediaLink';
 import LinksEditor from './LinksEditor';
+import DropZone from 'react-dropzone';
 
 export default class InlineForm extends React.Component {
 
@@ -27,6 +28,7 @@ export default class InlineForm extends React.Component {
         this.handleBulletsChange = this.handleBulletsChange.bind(this);
         this.handleLinksChange = this.handleLinksChange.bind(this);
         this.updateTimeRange = this.updateTimeRange.bind(this);
+        this.handleImageDrop = this.handleImageDrop.bind(this);
     }
 
     handleUpdate() {
@@ -100,6 +102,11 @@ export default class InlineForm extends React.Component {
         this.setState({ fields: updatedFields });
     }
 
+    // TODO: export this to custom control
+    handleImageDrop() {
+        window.alert('hello');
+    }
+
     render() {
         let fieldValues = [];
 
@@ -109,7 +116,7 @@ export default class InlineForm extends React.Component {
                 switch (fieldInfo.type) {
                     case 'string':
                         fieldValues.push(
-                            <div className="form-group" key={fieldInfo.key}>
+                            <div className={'form-group ' + fieldInfo.key} key={fieldInfo.key}>
                                 <input
                                     type="text"
                                     className={'form-control form-control-sm ' + fieldInfo.key}
@@ -123,7 +130,7 @@ export default class InlineForm extends React.Component {
                         break;
                     case 'multiline':
                         fieldValues.push(
-                            <div className="form-group" key={fieldInfo.key}>
+                            <div className={'form-group ' + fieldInfo.key} key={fieldInfo.key}>
                                 <textarea
                                     className={'form-control form-control-sm ' + fieldInfo.key}
                                     name={fieldInfo.key}
@@ -160,6 +167,17 @@ export default class InlineForm extends React.Component {
                                 links={fieldInfo.value || []}
                                 handleChange={this.handleLinksChange}
                             />
+                        );
+                        break;
+                    case 'image':
+                        fieldValues.push(
+                            <DropZone
+                                className="headshot-dropzone"
+                                key={fieldInfo.key}
+                                onDrop={this.handleImageDrop}
+                            >
+                                <div className={'testing'}>Hello</div>
+                            </DropZone>
                         );
                         break;
                 }
