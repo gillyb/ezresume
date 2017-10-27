@@ -61,7 +61,7 @@ typings/
 
 
 # Custom stuff
-.idea
+.idea/
 dist
 build
 
