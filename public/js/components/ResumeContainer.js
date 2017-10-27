@@ -70,17 +70,17 @@ export default class ResumeContainer extends React.Component {
 
     render() {
 
-        const containerClassName = (this.state.publicView ? 'public-view ' : 'edit-mode ') + 'resume-container';
+        const containerClassName = (this.state.publicView ? 'public-view ' : 'edit-mode ') + 'resume-container theme-default';
 
         return (
-            <div className={containerClassName}>
-                <h1 className="full-name">{this.state.resumeObject.fullName}</h1>
-                <OnlinePresenceSection
-                    onlinePresence={this.state.resumeObject.onlinePresence}
-                    publicView={this.state.publicView}
-                    onUpdate={this.saveSection}
-                    onDelete={this.deleteSection}
-                />
+            <div className={containerClassName} id="resume-container default-theme">
+                {/*<h1 className="full-name">{this.state.resumeObject.fullName}</h1>*/}
+                {/*<OnlinePresenceSection*/}
+                    {/*onlinePresence={this.state.resumeObject.onlinePresence}*/}
+                    {/*publicView={this.state.publicView}*/}
+                    {/*onUpdate={this.saveSection}*/}
+                    {/*onDelete={this.deleteSection}*/}
+                {/*/>*/}
                 <GeneralDetailsSection
                     generalDetails={this.state.resumeObject.generalDetails}
                     publicView={this.state.publicView}

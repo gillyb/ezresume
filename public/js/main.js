@@ -25,6 +25,12 @@ if (localResume) {
     resumeObject = localResume;
 }
 
+// TODO: extract this - This is just intended for testing now..
+function changeTheme(theme) {
+    const resumeContainer = document.getElementById('resume-container');
+    resumeContainer.classList = 'resume-container ' + theme + '-theme';
+}
+
 ReactDOM.render((
     <BrowserRouter>
         <Route path="/">

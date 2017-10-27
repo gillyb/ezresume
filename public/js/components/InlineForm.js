@@ -112,7 +112,7 @@ export default class InlineForm extends React.Component {
                             <div className="form-group" key={fieldInfo.key}>
                                 <input
                                     type="text"
-                                    className="form-control form-control-sm"
+                                    className={'form-control form-control-sm ' + fieldInfo.key}
                                     name={fieldInfo.key}
                                     value={fieldInfo.value}
                                     placeholder={fieldInfo.name}
@@ -125,7 +125,7 @@ export default class InlineForm extends React.Component {
                         fieldValues.push(
                             <div className="form-group" key={fieldInfo.key}>
                                 <textarea
-                                    className="form-control form-control-sm"
+                                    className={'form-control form-control-sm ' + fieldInfo.key}
                                     name={fieldInfo.key}
                                     value={fieldInfo.value}
                                     placeholder={fieldInfo.name}
@@ -228,7 +228,11 @@ export default class InlineForm extends React.Component {
                     <div className="actions">
                         <button type="button" className="btn btn-primary btn-sm" onClick={this.handleUpdate}>Save</button>
                         <button type="button" className="btn btn-secondary btn-sm" onClick={this.handleCancel}>Cancel</button>
-                        <button type="button" className="btn btn-danger btn-sm float-right" onClick={this.handleDelete}>Delete Section</button>
+                        {
+                            this.handleDelete ?
+                                <button type="button" className="btn btn-danger btn-sm float-right" onClick={this.handleDelete}>Delete Section</button> :
+                                null
+                        }
                     </div>
                 }
 

@@ -68,7 +68,7 @@ export default class LinksEditor extends React.Component {
 
         return (
             <div className="links">
-                <label className="form-label">Links</label>
+                <label className="form-label">External links (online presence)</label>
                 {linksInput}
                 <input type="text" className="form-control form-control-sm" ref="new_input" value="" onChange={this.addNewLink} />
             </div>

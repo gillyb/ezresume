@@ -6,26 +6,24 @@ import ResumeDataGenerator from './../ResumeDataGenerator';
 
 export default class GeneralDetailsSection extends React.Component {
 
+    // TODO: maybe we should make a custom editor for this, instead of using InlineForm
+
     constructor(props) {
         super(props);
 
         this.template = [
+            // TODO: add support for the headshot here
+            { name: 'Full Name', key: 'fullName', type: 'string' },
             { name: 'Job title', key: 'jobTitle', type: 'string' },
-            { name: 'About You', key: 'aboutYou', type: 'multiline' }
+            { name: 'About You', key: 'aboutYou', type: 'multiline' },
+            { name: 'Online Presence', key: 'onlinePresence', type: 'links' }
         ];
 
         this.onSave = this.onSave.bind(this);
-        this.onDelete = this.onDelete.bind(this);
-        this.addGeneralDetails = this.addGeneralDetails.bind(this);
-    }
-
-    addGeneralDetails() {
-        ResumeDataGenerator.get('generalDetails').then((sectionData) => {
-            this.props.onUpdate({ generalDetails: sectionData });
-        });
     }
 
     onSave(updatedFields) {
+        // TODO: validate that at least a fullname exists!
         if (this.props.publicView)
             return;
 
@@ -38,39 +36,9 @@ export default class GeneralDetailsSection extends React.Component {
         this.props.onUpdate({ generalDetails: newGeneralDetails });
     }
 
-    onDelete() {
-        if (this.props.publicView)
-            return;
-
-        this.props.onDelete('generalDetails');
-    }
-
     render() {
 
-        const addGeneralDetailsButton = !this.props.publicView ? (
-            <div className="add-section">
-                {/* TODO: extract this button to something common */}
-                <button
-                    type="button"
-                    className="btn btn-sm btn-outline-secondary"
-                    onClick={this.addGeneralDetails}
-                >
-                    Add General Details
-                    <svg fill="#868e96" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M0 0h24v24H0z" fill="none"/>
-                        <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
-                    </svg>
-                </button>
-            </div>
-        ) : <div className="hidden empty" />;
-
-        if (!this.props.generalDetails) {
-            return (
-                <div className="resume-section general-details">
-                    {addGeneralDetailsButton}
-                </div>
-            );
-        }
+        // TODO: this can't be empty!!
 
         const displayFields = this.template.map((field) => {
             if (this.props.generalDetails.hasOwnProperty(field.key))
@@ -84,7 +52,6 @@ export default class GeneralDetailsSection extends React.Component {
                     sectionName="general-details"
                     formFields={displayFields}
                     onSave={this.onSave}
-                    onDelete={this.onDelete}
                     publicView={this.props.publicView}
                 />
             </div>
