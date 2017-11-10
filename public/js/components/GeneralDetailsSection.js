@@ -39,7 +39,7 @@ export default class GeneralDetailsSection extends React.Component {
 
     render() {
 
-        // TODO: this can't be empty!!
+        // TODO: this can't be empty!! (validate it)
 
         const displayFields = this.template.map((field) => {
             if (this.props.generalDetails.hasOwnProperty(field.key))

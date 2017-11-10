@@ -68,7 +68,8 @@ logger.info(' :: Done initial loading.');
 logger.info(' :: Starting server...');
 
 // start listening...
-app.listen(Number(process.env.PORT || 5000)).on('error', function(ex) {
+const serverPort = Number(process.env.PORT || 5000);
+app.listen(serverPort).on('error', function(ex) {
 
     logger.error(ex);
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import _ from 'lodash';
+import reqwest from 'reqwest';
 
 import TimeRangeEditor from './TimeRangeEditor';
 import BulletsEditor from './BulletsEditor';
@@ -103,8 +104,25 @@ export default class InlineForm extends React.Component {
     }
 
     // TODO: export this to custom control
-    handleImageDrop() {
-        window.alert('hello');
+    handleImageDrop(acceptedFiles) {
+        if (!acceptedFiles || !acceptedFiles.length)
+            return;
+
+        let formData = new FormData();
+        formData.append('headshot', acceptedFiles[0]);
+
+        reqwest({
+          url: '/resume/upload-image',
+          method: 'POST',
+          data: formData,
+          processData: false,
+          success: () => {
+
+          },
+          error: () => {
+
+          }
+        });
     }
 
     render() {
@@ -171,12 +189,14 @@ export default class InlineForm extends React.Component {
                         break;
                     case 'image':
                         fieldValues.push(
+                          // TODO: display current image in the background
                             <DropZone
                                 className="headshot-dropzone"
                                 key={fieldInfo.key}
                                 onDrop={this.handleImageDrop}
                             >
-                                <div className={'testing'}>Hello</div>
+                                <i className="fa fa-camera"></i>
+                                <div className="">Drop image here</div>
                             </DropZone>
                         );
                         break;
@@ -230,6 +250,9 @@ export default class InlineForm extends React.Component {
                                     )}
                                 </ul>
                             );
+                            break;
+                        case 'image':
+                            // TODO: display image (probably headshot)
                             break;
                     }
                 }
