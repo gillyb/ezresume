@@ -101,17 +101,15 @@ module.exports = {
         // });
 
         if (resume._id) {
-            return Resume.findById(resume._id).exec().then((err, doc) => {
-                if (err) {
-                    // TODO: throw some error
-                    return Promise.reject(err);
-                }
+            return Resume.findById(resume._id).exec().then((doc) => {
 
                 // copy changed properties to the db resume model
                 _.assign(doc, resume);
 
                 // TODO: maybe check for error too
                 return doc.save();
+            }).catch((err) => {
+                return Promise.reject(err);
             });
         }
 

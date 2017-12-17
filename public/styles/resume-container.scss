@@ -18,6 +18,9 @@
 
   .resume-section {
 
+    position: relative;
+    margin-bottom: 40px;
+
     .timerange {
       line-height: 1.35rem;
       font-style: italic;
@@ -33,12 +36,14 @@
       }
     }
 
-    .fullName {
+    .fullName span {
       font-weight: 600;
+      font-size: 46px;
+      line-height: 46px;
+      margin-bottom: 8px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
     }
-
-    position: relative;
-    margin-bottom: 40px;
 
     .section-title {
       color: #aaa;

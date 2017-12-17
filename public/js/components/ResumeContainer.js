@@ -8,7 +8,6 @@ import SkillsSection from "./SkillsSection";
 
 import ResumeService from './../ResumeService';
 import IsPublic from './../IsPublic';
-import OnlinePresenceSection from "./OnlinePresenceSection";
 
 export default class ResumeContainer extends React.Component {
 
@@ -86,6 +85,7 @@ export default class ResumeContainer extends React.Component {
                     publicView={this.state.publicView}
                     onUpdate={this.saveSection}
                     onDelete={this.deleteSection}
+                    resumeId={this.state.resumeObject._id}
                 />
                 <WorkExperienceSection
                     workExperience={this.state.resumeObject.workExperience || []}

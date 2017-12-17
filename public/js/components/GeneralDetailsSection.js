@@ -2,7 +2,6 @@ import React from 'react';
 import _ from 'lodash';
 
 import InlineForm from './InlineForm';
-import ResumeDataGenerator from './../ResumeDataGenerator';
 
 export default class GeneralDetailsSection extends React.Component {
 
@@ -12,7 +11,6 @@ export default class GeneralDetailsSection extends React.Component {
         super(props);
 
         this.template = [
-            // TODO: add support for the headshot here
             { name: 'Headshot', key: 'headshot', type: 'image' },
             { name: 'Full Name', key: 'fullName', type: 'string' },
             { name: 'Job title', key: 'jobTitle', type: 'string' },
@@ -54,6 +52,7 @@ export default class GeneralDetailsSection extends React.Component {
                     formFields={displayFields}
                     onSave={this.onSave}
                     publicView={this.props.publicView}
+                    resumeId={this.props.resumeId}
                 />
             </div>
         );

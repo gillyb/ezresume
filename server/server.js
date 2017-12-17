@@ -26,8 +26,12 @@ app.use(express.static(publicRootDir + '/scripts'));
 app.use(express.static(publicRootDir + '/css'));
 app.use(express.static(publicRootDir + '/img'));
 app.use(express.static(publicRootDir + '/js'));
+
 // for webpack output
 app.use(express.static(publicBuildDir));
+
+// image uploads
+app.use(express.static(path.join(__dirname, '../uploads')));
 
 
 // auth
@@ -74,3 +78,5 @@ app.listen(serverPort).on('error', function(ex) {
     logger.error(ex);
 
 });
+
+logger.info('Listening on port ' + serverPort);

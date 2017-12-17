@@ -62,13 +62,8 @@ export default class InlineForm extends React.Component {
             this.setState({ editing: true });
     }
 
-    // TODO: use a better utility for this (like lodash)
-    cloneArray(arr) {
-        return JSON.parse(JSON.stringify(arr));
-    }
-
     handleChange(event) {
-        let updatedFields = this.cloneArray(this.state.fields);
+        let updatedFields = [...this.state.fields];
         updatedFields.forEach((field) => {
             if (field.key === event.target.name)
                 field.value = event.target.value;
@@ -77,13 +72,13 @@ export default class InlineForm extends React.Component {
     }
 
     handleBulletsChange(updatedValue) {
-        let updatedFields = this.cloneArray(this.state.fields);
+        let updatedFields = [...this.state.fields];
         _.find(updatedFields, (field) => field.type === 'bullets').value = updatedValue;
         this.setState({ fields: updatedFields });
     }
 
     handleLinksChange(updatedValue) {
-        let updatedFields = this.cloneArray(this.state.fields);
+        let updatedFields = [...this.state.fields];
         _.find(updatedFields, (field) => field.type === 'links').value = updatedValue;
         this.setState({ fields: updatedFields });
     }
@@ -92,7 +87,7 @@ export default class InlineForm extends React.Component {
         if (this.props.publicView)
             return;
 
-        let updatedFields = this.cloneArray(this.state.fields);
+        let updatedFields = [...this.state.fields];
         let updatedTimeRange = _.find(updatedFields, (field) => field.key === 'period');
         if (!updatedTimeRange.value)
             updatedTimeRange.value = {
@@ -105,6 +100,7 @@ export default class InlineForm extends React.Component {
 
     // TODO: export this to custom control
     handleImageDrop(acceptedFiles) {
+        // TODO: maybe we shouldn't allow unregistered users to upload images
         if (!acceptedFiles || !acceptedFiles.length)
             return;
 
@@ -116,8 +112,13 @@ export default class InlineForm extends React.Component {
           method: 'POST',
           data: formData,
           processData: false,
-          success: () => {
-
+          success: (response) => {
+            let updatedFields = [...this.state.fields];
+            updatedFields.forEach((field) => {
+                if (field.key === 'headshot')
+                    field.value = response.filename;
+            });
+            this.setState({ fields: updatedFields });
           },
           error: () => {
 
@@ -182,7 +183,7 @@ export default class InlineForm extends React.Component {
                         fieldValues.push(
                             <LinksEditor
                                 key={fieldInfo.key}
-                                links={fieldInfo.value || []}
+                                links={fieldInfo.value.links || []}
                                 handleChange={this.handleLinksChange}
                             />
                         );
@@ -194,9 +195,13 @@ export default class InlineForm extends React.Component {
                                 className="headshot-dropzone"
                                 key={fieldInfo.key}
                                 onDrop={this.handleImageDrop}
+                                // accept={'image/jpeg; image/png; image/gif'}
+                                // multiple={false}
+                                // maxSize={3000000}
                             >
                                 <i className="fa fa-camera"></i>
                                 <div className="">Drop image here</div>
+                                <input type="hidden" name="resumeId" value={this.props.resumeId} />
                             </DropZone>
                         );
                         break;
@@ -243,7 +248,7 @@ export default class InlineForm extends React.Component {
                         case 'links':
                             fieldValues.push(
                                 <ul className="links online-presence" key={fieldInfo.key}>
-                                    {fieldInfo.value.map((link, index) =>
+                                    {fieldInfo.value.links.map((link, index) =>
                                         <li key={index}>
                                             <SocialMediaLink link={link} />
                                         </li>
@@ -252,7 +257,14 @@ export default class InlineForm extends React.Component {
                             );
                             break;
                         case 'image':
-                            // TODO: display image (probably headshot)
+                            fieldValues.push(
+                              <div className="headshot" key={fieldInfo.key}
+                                style={{
+                                    backgroundImage: `url("${fieldInfo.value}")`,
+                                    backgroundSize: 'cover'
+                                }}>
+                              </div>
+                            );
                             break;
                     }
                 }
