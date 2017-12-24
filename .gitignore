@@ -64,6 +64,7 @@ typings/
 .idea/
 dist
 build
+uploads
 
 # configuration files
 server/config/dev.js

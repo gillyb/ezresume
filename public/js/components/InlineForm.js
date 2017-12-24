@@ -192,15 +192,18 @@ export default class InlineForm extends React.Component {
                         fieldValues.push(
                           // TODO: display current image in the background
                             <DropZone
-                                className="headshot-dropzone"
+                                className={"headshot-dropzone" + (fieldInfo.value ? " with-image" : "")}
                                 key={fieldInfo.key}
                                 onDrop={this.handleImageDrop}
                                 // accept={'image/jpeg; image/png; image/gif'}
                                 // multiple={false}
                                 // maxSize={3000000}
                             >
-                                <i className="fa fa-camera"></i>
-                                <div className="">Drop image here</div>
+                                <div className="image-preview" style={{backgroundImage: `url("${fieldInfo.value}")`}}></div>
+                                <div className="dropzone-overlay">
+                                    <i className="fa fa-camera"></i>
+                                    <div className="">Drop image here</div>
+                                </div>
                                 <input type="hidden" name="resumeId" value={this.props.resumeId} />
                             </DropZone>
                         );
