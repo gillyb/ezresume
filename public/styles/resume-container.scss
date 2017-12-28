@@ -99,6 +99,25 @@
         .aboutYou { margin-left: $headshotSize + 20; }
         .fullName { margin-left: $headshotSize + 20; }
       }
+
+      .online-presence {  // ul
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: inline-block;
+        li {
+          display: inline-block;
+          width: 24px;
+          height: 24px;
+          background-color: black;
+          margin-right: 10px;
+          border-radius: 4px;
+          color: #fff;
+          text-align: center;
+          line-height: 24px;
+          font-size: 16px;
+        }
+      }
     }
 
     &.work-experience {
@@ -235,7 +254,7 @@
             background-size: cover;
             position: absolute;
             width: 100%; height: 100%;
-            opacity: 0.4;
+            opacity: 1;
           }
           &.with-image {
             .dropzone-overlay {
@@ -243,6 +262,11 @@
             }
             &:hover .dropzone-overlay {
               opacity: 1;
+            }
+          }
+          &:hover {
+            .image-preview {
+              opacity: 0.4;
             }
           }
         }

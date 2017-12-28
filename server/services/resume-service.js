@@ -14,16 +14,14 @@ module.exports = {
         return Promise.resolve({
             userId: new mongoose.Types.ObjectId(),
 
-            fullName: 'Gilly Barr',
-
             generalDetails: {
+                fullName: 'Gilly Barr',
                 jobTitle: 'Senior Full Stack Engineer',
-                aboutYou: 'I am the best, no doubt! word!'
-            },
-            onlinePresence: {
-                links: [
-                    'http://facebook.com/gilly-barr',
-                    'https://github.com/gillyb'
+                aboutYou: 'I am the best, no doubt! word!',
+                headshot: '',
+                onlinePresence: [
+                  'http://facebook.com/gilly-barr',
+                  'https://github.com/gillyb'
                 ]
             },
             workExperience: [{

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
 import AuthService from './../AuthService';
 
@@ -9,16 +9,10 @@ export default class HomeComponent extends React.Component {
         super(props);
     }
 
-    componentWillMount() {
-        // TODO: maybe we should redirect in a better way
-        if (AuthService.isAuthenticated())
-            window.location.href = '/resume';
-    }
-
     render() {
 
         if (AuthService.isAuthenticated())
-            return null;
+            return <Redirect to="/resume" />;
 
         return (
             <div className="row justify-content-center">

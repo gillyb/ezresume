@@ -183,7 +183,7 @@ export default class InlineForm extends React.Component {
                         fieldValues.push(
                             <LinksEditor
                                 key={fieldInfo.key}
-                                links={fieldInfo.value.links || []}
+                                links={fieldInfo.value || []}
                                 handleChange={this.handleLinksChange}
                             />
                         );
@@ -251,7 +251,7 @@ export default class InlineForm extends React.Component {
                         case 'links':
                             fieldValues.push(
                                 <ul className="links online-presence" key={fieldInfo.key}>
-                                    {fieldInfo.value.links.map((link, index) =>
+                                    {fieldInfo.value.map((link, index) =>
                                         <li key={index}>
                                             <SocialMediaLink link={link} />
                                         </li>
