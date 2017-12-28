@@ -16,6 +16,25 @@
     text-transform: uppercase;
   }
 
+  @mixin sub-section-title() {
+    font-weight: 800;
+    line-height: 1.35rem;
+  }
+  @mixin sub-section-sub-title() {
+    font-weight: 500;
+    line-height: 1.35rem;
+  }
+  @mixin sub-section-detail() {
+    display: inline-block;
+    color: #aaa;
+    font-style: italic;
+    line-height: 1.35rem;
+  }
+  @mixin sub-section-date-range() {
+    position: absolute;
+    top: 0; right: 0;
+  }
+
   .resume-section {
 
     position: relative;
@@ -124,22 +143,16 @@
       .companyName {
         display: inline-block;
         margin-right: 20px;
-        font-weight: 800;
-        line-height: 1.35rem;
+        @include sub-section-title();
       }
       .jobTitle {
-        font-weight: 500;
-        line-height: 1.35rem;
+        @include sub-section-sub-title();
       }
       .companyWebsite {
-        display: inline-block;
-        color: #aaa;
-        font-style: italic;
-        line-height: 1.35rem;
+        @include sub-section-detail();
       }
       .timerange {
-        position: absolute;
-        top: 0; right: 0;
+        @include sub-section-date-range();
       }
       .summary {
         font-weight: 300;
@@ -153,14 +166,10 @@
 
     &.education {
       .school {
-        font-weight: 800;
-        line-height: 1.35rem;
+        @include sub-section-title();
       }
       .degree {
-        display: inline-block;
-        font-weight: 500;
-        line-height: 1.35rem;
-        margin-right: 8px;
+        @include sub-section-sub-title();
       }
       .major {
         display: inline-block;
@@ -168,8 +177,7 @@
         line-height: 1.35rem;
       }
       .timerange {
-        position: absolute;
-        top: 0; right: 0;
+        @include sub-section-date-range();
       }
       .summary {
         font-weight: 300;
@@ -178,6 +186,21 @@
       .bullets {
         font-weight: 300;
         line-height: 1.4rem;
+      }
+    }
+
+    &.projects {
+      .projectName {
+        @include sub-section-title();
+      }
+      .role {
+        @include sub-section-sub-title();
+      }
+      .website {
+        @include sub-section-detail();
+      }
+      .timerange {
+        @include sub-section-date-range();
       }
     }
 
