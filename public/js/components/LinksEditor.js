@@ -16,7 +16,7 @@ export default class LinksEditor extends React.Component {
     componentDidUpdate() {
         if (this.updatingNewLink) {
             // make sure the focus stays on the right input
-            let editingInput = this.refs['input_' + (this.props.links.length - 1)];
+            let editingInput = this.refs['input_' + ((this.props.links.length - 1) || 0)];
             editingInput.focus();
             editingInput.setSelectionRange(editingInput.value.length, editingInput.value.length);
 

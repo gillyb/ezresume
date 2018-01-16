@@ -48,7 +48,7 @@ export default class GeneralDetailsSection extends React.Component {
         const hasHeadshot = !!this.props.generalDetails['headshot'];
 
         return (
-            <div className={"resume-section general-details" + (hasHeadshot ? " with-headshot" : "")}>
+            <div className={"clearfix resume-section general-details" + (hasHeadshot ? " with-headshot" : "")}>
                 <InlineForm
                     sectionName="general-details"
                     formFields={displayFields}

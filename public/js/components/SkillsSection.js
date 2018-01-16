@@ -55,7 +55,7 @@ export default class SkillsSection extends React.Component {
             </div>
         ) : <div className="hidden empty" />;
 
-        if (!this.props.skills || !this.props.skills.length || !this.props.skills[0]) {
+        if (!this.props.skills || !this.props.skills.length) {
             return (
                 <div className="resume-section skills">
                     {addSkillsButton}

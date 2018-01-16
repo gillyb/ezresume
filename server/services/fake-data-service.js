@@ -38,15 +38,15 @@ const fakeGeneralDetails = [
 ];
 
 const fakeOnlinePresence = [
-    { links: ['https://www.facebook.com/nicholas.cage.3979', 'https://twitter.com/NicolasCagest'] },
-    { links: ['https://www.facebook.com/officialchucknorrispage/', 'https://twitter.com/chucknorris', 'https://www.instagram.com/chucknorris/?hl=en'] },
-    { links: ['https://www.facebook.com/michaeljackson/', 'https://twitter.com/michaeljackson', 'https://www.instagram.com/michaeljackson/?hl=en'] },
-    { links: ['https://twitter.com/StartupLJackson'] },
-    { links: ['https://www.facebook.com/stevejobbes.apple', 'https://twitter.com/SJobsLegend'] },
-    { links: ['https://www.facebook.com/DonaldTrump/', 'https://twitter.com/realDonaldTrump'] },
-    { links: ['https://www.facebook.com/PresidentLincoln/'] },
-    { links: ['https://www.instagram.com/alberteinstein/?hl=en'] },
-    { links: ['https://twitter.com/KimKardashian', 'https://www.facebook.com/KimKardashian/'] }
+    ['https://www.facebook.com/nicholas.cage.3979', 'https://twitter.com/NicolasCagest'],
+    ['https://www.facebook.com/officialchucknorrispage/', 'https://twitter.com/chucknorris', 'https://www.instagram.com/chucknorris/?hl=en'],
+    ['https://www.facebook.com/michaeljackson/', 'https://twitter.com/michaeljackson', 'https://www.instagram.com/michaeljackson/?hl=en'],
+    ['https://twitter.com/StartupLJackson'],
+    ['https://www.facebook.com/stevejobbes.apple', 'https://twitter.com/SJobsLegend'],
+    ['https://www.facebook.com/DonaldTrump/', 'https://twitter.com/realDonaldTrump'],
+    ['https://www.facebook.com/PresidentLincoln/'],
+    ['https://www.instagram.com/alberteinstein/?hl=en'],
+    ['https://twitter.com/KimKardashian', 'https://www.facebook.com/KimKardashian/']
 ];
 
 const fakeWorkExperience = [
