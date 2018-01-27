@@ -2,6 +2,7 @@ import React from 'react';
 
 import InlineForm from "./InlineForm";
 import ResumeDataGenerator from './../ResumeDataGenerator';
+import AddSection from './AddSection';
 
 export default class SkillsSection extends React.Component {
 
@@ -12,9 +13,22 @@ export default class SkillsSection extends React.Component {
             { name: 'Skills', key: 'skills', type: 'bullets' }
         ];
 
+        this.state = {
+            editing: false
+        };
+
         this.addSkills = this.addSkills.bind(this);
         this.onSave = this.onSave.bind(this);
         this.onDelete = this.onDelete.bind(this);
+        this.startEdit = this.startEdit.bind(this);
+        this.stopEdit = this.stopEdit.bind(this);
+    }
+
+    startEdit() {
+        this.setState({ editing: true });
+    }
+    stopEdit() {
+        this.setState({ editing: false });
     }
 
     addSkills() {
@@ -38,22 +52,8 @@ export default class SkillsSection extends React.Component {
     }
 
     render() {
-        const addSkillsButton = !this.props.publicView ? (
-            <div className="add-section">
-                {/* TODO: extract this button to something common */}
-                <button
-                    type="button"
-                    className="btn btn-sm btn-outline-secondary"
-                    onClick={this.addSkills}
-                >
-                    Add Skills
-                    <svg fill="#868e96" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M0 0h24v24H0z" fill="none"/>
-                        <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
-                    </svg>
-                </button>
-            </div>
-        ) : <div className="hidden empty" />;
+        const addSkillsButton = !this.props.publicView ?
+            <AddSection caption="Add skills" onClick={this.addSkills} /> : <div className="hidden empty" />;
 
         if (!this.props.skills || !this.props.skills.length) {
             return (
@@ -74,6 +74,8 @@ export default class SkillsSection extends React.Component {
                     formFields={formFields}
                     onSave={this.onSave}
                     onDelete={this.onDelete}
+                    onStartEditing={this.startEdit}
+                    onStopEditing={this.stopEdit}
                     publicView={this.props.publicView}
                 />
             </div>

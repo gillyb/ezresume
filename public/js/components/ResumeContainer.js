@@ -18,6 +18,7 @@ export default class ResumeContainer extends React.Component {
 
         // TODO: check if we should separate the resumeObject to parts for a performance improvement
         this.state = {
+            editing: false,
             resumeObject: this.props.resumeObject,
             publicView: publicView
         };
@@ -33,7 +34,10 @@ export default class ResumeContainer extends React.Component {
             if (newResumeId) {
                 const updatedResume = {...this.state.resumeObject};
                 updatedResume._id = newResumeId;
-                this.setState({ resumeObject: updatedResume });
+                this.setState({
+                  resumeObject: updatedResume,
+                  editing: false
+                });
             }
         });
     }
@@ -73,13 +77,6 @@ export default class ResumeContainer extends React.Component {
 
         return (
             <div className={containerClassName} id="resume-container default-theme">
-                {/*<h1 className="full-name">{this.state.resumeObject.fullName}</h1>*/}
-                {/*<OnlinePresenceSection*/}
-                    {/*onlinePresence={this.state.resumeObject.onlinePresence}*/}
-                    {/*publicView={this.state.publicView}*/}
-                    {/*onUpdate={this.saveSection}*/}
-                    {/*onDelete={this.deleteSection}*/}
-                {/*/>*/}
                 <GeneralDetailsSection
                     generalDetails={this.state.resumeObject.generalDetails}
                     publicView={this.state.publicView}

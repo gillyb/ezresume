@@ -8,10 +8,10 @@ var resumeSchema = mongoose.Schema({
     userId: mongoose.Schema.ObjectId,
 
     generalDetails: {
-        // TODO: add headshot in this section
         fullName: String,
         jobTitle: String,
         aboutYou: String,
+        headshot: String,
         onlinePresence: [String],
     },
 

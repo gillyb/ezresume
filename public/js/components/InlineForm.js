@@ -8,6 +8,7 @@ import DisplayTimeRange from './DisplayTimeRange';
 import SocialMediaLink from './SocialMediaLink';
 import LinksEditor from './LinksEditor';
 import DropZone from 'react-dropzone';
+import FormActions from './FormActions';
 
 export default class InlineForm extends React.Component {
 
@@ -48,6 +49,7 @@ export default class InlineForm extends React.Component {
     }
 
     handleCancel() {
+        this.props.onStopEditing();
         this.setState({
             fields: this.props.formFields,
             editing: false
@@ -58,8 +60,10 @@ export default class InlineForm extends React.Component {
         if (this.props.publicView)
             return;
 
-        if (!this.state.editing)
+        if (!this.state.editing) {
+            this.props.onStartEditing();
             this.setState({ editing: true });
+        }
     }
 
     handleChange(event) {
@@ -129,12 +133,28 @@ export default class InlineForm extends React.Component {
     render() {
         let fieldValues = [];
 
+        // We only support a single div wrapper inside a resume section.
+        // yes, this sucks, i know, but it was fast to do, and simple!
+        let isInDiv = false;
+        let divContainer = [];
+
         if (this.state.editing && !this.props.publicView) {
             this.state.fields.forEach((fieldInfo) => {
 
                 switch (fieldInfo.type) {
-                    case 'string':
+                    case 'open-div':
+                        isInDiv = true;
+                        break;
+                    case 'close-div':
                         fieldValues.push(
+                            <div className={fieldInfo.class}>
+                                {divContainer}
+                            </div>
+                        );
+                        isInDiv = false;
+                        break;
+                    case 'string':
+                        (isInDiv ? divContainer : fieldValues).push(
                             <div className={'form-group ' + fieldInfo.key} key={fieldInfo.key}>
                                 <input
                                     type="text"
@@ -148,7 +168,7 @@ export default class InlineForm extends React.Component {
                         );
                         break;
                     case 'multiline':
-                        fieldValues.push(
+                        (isInDiv ? divContainer : fieldValues).push(
                             <div className={'form-group ' + fieldInfo.key} key={fieldInfo.key}>
                                 <textarea
                                     className={'form-control form-control-sm ' + fieldInfo.key}
@@ -161,7 +181,7 @@ export default class InlineForm extends React.Component {
                         );
                         break;
                     case 'timerange':
-                        fieldValues.push(
+                        (isInDiv ? divContainer : fieldValues).push(
                             <TimeRangeEditor
                                 key={fieldInfo.key}
                                 startDate={fieldInfo.value ? fieldInfo.value.startDate : undefined}
@@ -171,7 +191,7 @@ export default class InlineForm extends React.Component {
                         );
                         break;
                     case 'bullets':
-                        fieldValues.push(
+                        (isInDiv ? divContainer : fieldValues).push(
                             <BulletsEditor
                                 key={fieldInfo.key}
                                 bullets={fieldInfo.value || []}
@@ -180,7 +200,7 @@ export default class InlineForm extends React.Component {
                         );
                         break;
                     case 'links':
-                        fieldValues.push(
+                        (isInDiv ? divContainer : fieldValues).push(
                             <LinksEditor
                                 key={fieldInfo.key}
                                 links={fieldInfo.value || []}
@@ -189,7 +209,7 @@ export default class InlineForm extends React.Component {
                         );
                         break;
                     case 'image':
-                        fieldValues.push(
+                        (isInDiv ? divContainer : fieldValues).push(
                           // TODO: display current image in the background
                             <DropZone
                                 className={"headshot-dropzone" + (fieldInfo.value ? " with-image" : "")}
@@ -212,14 +232,27 @@ export default class InlineForm extends React.Component {
             });
         }
         else {
+
             this.state.fields.forEach((fieldInfo) => {
                 if (fieldInfo.value) {
 
                     switch (fieldInfo.type) {
 
+                        case 'open-div':
+                            isInDiv = true;
+                            break;
+                        case 'close-div':
+                            fieldValues.push(
+                                <div className={fieldInfo.class}>
+                                    {divContainer}
+                                </div>
+                            );
+                            isInDiv = false;
+                            break;
+
                         case 'string':
                         case 'multiline':
-                            fieldValues.push(
+                            (isInDiv ? divContainer : fieldValues).push(
                                 <div
                                     className={fieldInfo.key + ' form-value'}
                                     key={fieldInfo.key}
@@ -230,7 +263,7 @@ export default class InlineForm extends React.Component {
                             break;
 
                         case 'timerange':
-                            fieldValues.push(
+                            (isInDiv ? divContainer : fieldValues).push(
                                 <DisplayTimeRange
                                     key={fieldInfo.key}
                                     startDate={fieldInfo.value.startDate}
@@ -240,7 +273,7 @@ export default class InlineForm extends React.Component {
                             break;
 
                         case 'bullets':
-                            fieldValues.push(
+                            (isInDiv ? divContainer : fieldValues).push(
                                 <ul className="bullets" key={fieldInfo.key}>
                                     {fieldInfo.value.map((bullet, index) =>
                                         <li key={index}>{bullet}</li>
@@ -249,7 +282,7 @@ export default class InlineForm extends React.Component {
                             );
                             break;
                         case 'links':
-                            fieldValues.push(
+                            (isInDiv ? divContainer : fieldValues).push(
                                 <ul className="links online-presence" key={fieldInfo.key}>
                                     {fieldInfo.value.map((link, index) =>
                                         <li key={index}>
@@ -260,7 +293,7 @@ export default class InlineForm extends React.Component {
                             );
                             break;
                         case 'image':
-                            fieldValues.push(
+                            (isInDiv ? divContainer : fieldValues).push(
                               <div className="headshot" key={fieldInfo.key}
                                 style={{
                                     backgroundImage: `url("${fieldInfo.value}")`,
@@ -291,8 +324,7 @@ export default class InlineForm extends React.Component {
                         }
                     </div>
                 }
-
-                <span className="form-action edit">Click to edit</span>
+                {/*{this.state.editing ? null : <FormActions />}*/}
             </div>
         );
     }

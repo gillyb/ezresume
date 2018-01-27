@@ -2,6 +2,7 @@ import React from 'react';
 import InlineForm from "./InlineForm";
 
 import ResumeDataGenerator from './../ResumeDataGenerator';
+import AddSection from './AddSection';
 
 export default class OnlinePresenceSection extends React.Component {
 
@@ -12,9 +13,22 @@ export default class OnlinePresenceSection extends React.Component {
             { name: 'Online presence (links to online public profiles)', key: 'links', type: 'links' }
         ];
 
+        this.state = {
+            editing: false
+        };
+
         this.onSave = this.onSave.bind(this);
         this.onDelete = this.onDelete.bind(this);
         this.addOnlinePresence = this.addOnlinePresence.bind(this);
+        this.startEdit = this.startEdit.bind(this);
+        this.stopEdit = this.stopEdit.bind(this);
+    }
+
+    startEdit() {
+        this.setState({ editing: true });
+    }
+    stopEdit() {
+        this.setState({ editing: false });
     }
 
     addOnlinePresence() {
@@ -38,22 +52,8 @@ export default class OnlinePresenceSection extends React.Component {
     }
 
     render() {
-        const addOnlinePresenceButton = !this.props.publicView ? (
-            <div className="add-section">
-                {/* TODO: extract this button to something common */}
-                <button
-                    type="button"
-                    className="btn btn-sm btn-outline-secondary"
-                    onClick={this.addOnlinePresence}
-                >
-                    Add Online Presence
-                    <svg fill="#868e96" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M0 0h24v24H0z" fill="none"/>
-                        <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
-                    </svg>
-                </button>
-            </div>
-        ) : <div className="hidden empty" />;
+        const addOnlinePresenceButton = !this.props.publicView ?
+            <AddSection caption="Add online presence" onClick={this.addOnlinePresence} /> : <div className="hidden empty" />;
 
         if (!this.props.onlinePresence || !this.props.onlinePresence.links || !this.props.onlinePresence.links[0]) {
             return (
@@ -73,6 +73,8 @@ export default class OnlinePresenceSection extends React.Component {
                     formFields={formFields}
                     onSave={this.onSave}
                     onDelete={this.onDelete}
+                    onStartEditing={this.startEdit}
+                    onStopEditing={this.stopEdit}
                     publicView={this.props.publicView}
                 />
             </div>
