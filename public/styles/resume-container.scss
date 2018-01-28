@@ -2,7 +2,8 @@
 
   $headshotSize: 80px;
 
-  margin: 50px auto;
+  position: relative;
+  margin: 70px auto;
   padding: 50px;
   border: solid 1px #eee;
   max-width: 1000px;
@@ -12,6 +13,10 @@
   }
 
   /* Viewing Resume */
+
+  .resume-tools {
+    display: none;
+  }
 
   .section-title {
     font-weight: bold;
@@ -244,9 +249,20 @@
     $edit-area-hover-margin: 6px;
     $add-section-bottom: -20px;
 
+    .resume-tools {
+      display: inline-block;
+      position: absolute;
+      top: -40px; right: 0;
+      button {
+        margin-left: 10px;
+      }
+    }
+
     .resume-section {
+
       position: relative;
       transition: all 0.3s;
+
       .add-section {
         background-color: #fff;
         opacity: 0.6;

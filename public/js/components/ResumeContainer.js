@@ -8,6 +8,7 @@ import SkillsSection from "./SkillsSection";
 
 import ResumeService from './../ResumeService';
 import IsPublic from './../IsPublic';
+import ResumeActions from './ResumeActions';
 
 export default class ResumeContainer extends React.Component {
 
@@ -77,6 +78,7 @@ export default class ResumeContainer extends React.Component {
 
         return (
             <div className={containerClassName} id="resume-container default-theme">
+                {!this.state.publicView ? <ResumeActions /> : null}
                 <GeneralDetailsSection
                     generalDetails={this.state.resumeObject.generalDetails}
                     publicView={this.state.publicView}
